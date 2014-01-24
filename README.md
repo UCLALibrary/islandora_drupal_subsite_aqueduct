@@ -1,2 +1,3 @@
-islandora_drupal_subsite_aqueduct
-=================================
+# Islandora Drupal Subsite Aqueduct
+
+The code repository for the Aqueduct project.
