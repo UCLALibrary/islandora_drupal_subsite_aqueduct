@@ -1,0 +1,25 @@
+/**
+ * Customizations for the frontpage.
+ */
+.front {
+
+  // Hide the page title.
+  @extend %no-page-title;
+
+  // Turn the menu tree into an intermediary navigation menu
+  .pane-menu-tree ul.menu {
+    @extend %intermediary-navigation-menu;
+  }
+
+  // Remove the vertical divider (background image) on the homepage.
+  .l-header {
+    background-image: none;
+  }
+
+  // Extend the logo image region to take up the full width.
+  .l-branding {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+  }
+}

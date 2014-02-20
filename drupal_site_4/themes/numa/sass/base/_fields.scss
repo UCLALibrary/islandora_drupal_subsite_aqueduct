@@ -1,0 +1,7 @@
+.field-label {
+  font-weight: 100;
+  @extend %font-family-abelpro-bold;
+  color: #757373;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}

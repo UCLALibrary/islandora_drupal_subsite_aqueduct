@@ -1,0 +1,28 @@
+name = Ember
+description = A responsive administration theme.
+package = Core
+version = VERSION
+core = 7.x
+
+; Stylesheets
+;stylesheets[screen][] = styles/normalize.css
+stylesheets[screen][] = styles/style.css
+
+; Settings
+settings[shortcut_module_link] = 1
+
+; Regions
+regions[content] = Content
+regions[help] = Help
+regions[messages] = Messages
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+regions[sidebar_first] = First sidebar
+regions_hidden[] = sidebar_first
+
+; Information added by drupal.org packaging script on 2013-10-05
+version = "7.x-2.0-alpha1+23-dev"
+core = "7.x"
+project = "ember"
+datestamp = "1380935035"
+

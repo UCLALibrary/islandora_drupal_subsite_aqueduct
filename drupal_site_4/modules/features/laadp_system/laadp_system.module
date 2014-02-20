@@ -1,0 +1,23 @@
+<?php
+/**
+ * @file
+ * Code for the LAADP System feature.
+ */
+
+include_once 'laadp_system.features.inc';
+
+
+/**
+ * Implements hook_ctools_plugin_directory()
+ *
+ * This lets ctools know where to scan my module for plugin files.
+ */
+function laadp_system_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'ctools' && $plugin_type == 'content_types') {
+    return 'plugins/content_types';
+  }
+  if ($owner == 'page_manager' || $owner == 'panels') {
+    return 'plugins/' . $plugin_type;
+  }
+}
+

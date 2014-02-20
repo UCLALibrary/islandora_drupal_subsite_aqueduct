@@ -1,0 +1,11 @@
+// Styles for resources page.
+.page-resources {
+
+  // Hide the page title.
+  @extend %no-page-title;
+
+  // Turn the menu tree into an intermediary navigation menu.
+  .pane-menu-tree ul.menu {
+    @extend %intermediary-navigation-menu;
+  }
+}

@@ -1,0 +1,26 @@
+.form-text,
+select {
+  @include appearance(none);
+  @include border-radius(0);
+  background-color: $content-bg-color;
+  border: none;
+  padding: .2em .4em;
+  font-size: 1em;
+}
+select {
+  background-image: url(../images/select.png);
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+}
+
+.form-submit {
+  background: $button-background;
+  color: white;
+  border: none;
+  @include appearance(none);
+  @include border-radius(0);
+  padding: .3em .8em;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  vertical-align: top;
+}

@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function laadp_links_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'ctools' && $plugin_type == 'content_types') {
+    return 'plugins/content_types';
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function laadp_links_theme($existing, $type, $theme, $path) {
+  return array(
+    'content_user_links' => array(
+      'template' => 'content-user-links',
+      'variables' => array('node' => NULL),
+    ),
+  );
+}
+
+/**
+ * Prepares variables for the content user links template.
+ *
+ * @see content-user-links.tpl.php
+ */
+function laadp_links_preprocess_content_user_links(&$variables) {
+  drupal_add_css(drupal_get_path('module', 'laadp_links') . '/css/content_user_links.css');
+
+  drupal_add_js('var switchTo5x = true;', 'inline');
+  drupal_add_js('//w.sharethis.com/button/buttons.js', 'external');
+  drupal_add_js("stLight.options({publisher:'77c0b9dc-ebdd-48ce-830b-22ce8118a810'});", 'inline');
+}

@@ -1,0 +1,202 @@
+<?php
+/**
+ * @file
+ * Code for the LAADP Search feature.
+ */
+
+include_once 'laadp_search.features.inc';
+
+/**
+ * implements hook_ctools_plugin_directory().
+ */
+function laadp_search_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'ctools' && in_array($plugin, array('content_types'))) {
+    return "plugins/$plugin";
+  }
+}
+
+/**
+ * Implements hook_views_pre_build().
+ */
+function laadp_search_views_pre_build(&$view) {
+  if (arg(0) == 'search-form') {
+    $view->override_path = 'search';
+  }
+}
+
+/**
+ * Implements hook_views_pre_view().
+ */
+function laadp_search_views_pre_view(&$view, $display_id, $args) {
+  if (arg(0) == 'search') {
+    $exposed_input = $view->get_exposed_input();
+    if (!isset($exposed_input['field_genre'])) {
+      $view->set_exposed_input(array('field_genre' => ''));
+    }
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function laadp_search_form_alter(&$form, &$form_state, $form_id, $view) {
+  if ($form_id == 'views_exposed_form') {
+    $view = $form_state['view'];
+    // only alter filters for search_solr view
+    if ($view->name != 'search_solr') {
+      return;
+    }
+
+    $advanced_filters = array(
+      'field_subjects_fulltext',
+      'field_location_fulltext',
+      'field_people_fulltext',
+      'field_date_year',
+      'field_date_year_1',
+      'field_genre'
+    );
+
+    // override submit label
+    $form['submit']['#value'] = t('Search');
+
+    // create a fieldset for basic filters
+    $form['basic_filters'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Search the Archives'),
+      '#weight' => -2,
+      '#collapsible' => FALSE,
+      '#collapsed' => FALSE,
+    );
+
+    $form['basic_filters']['keywords'] = $form['keywords'];
+    $form['basic_filters']['keywords']['#title'] = t('Keyword Search');
+    $form['basic_filters']['submit'] = $form['submit'];
+    unset($form['keywords']);
+    unset($form['#info']['filter-search_api_views_fulltext']);
+
+    // create a fieldset for advanced options and move advanced filters to be childs
+    $form['advanced_filters'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Advanced Options'),
+      '#weight' => -1,
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+    );
+
+    foreach ($advanced_filters as $advanced_filter) {
+      $info =& $form['#info']['filter-' . $advanced_filter];
+      $form['advanced_filters'][$advanced_filter] = $form[$advanced_filter];
+      $form['advanced_filters'][$advanced_filter]['#title'] = $info['label'];
+      unset($form['#info']['filter-' . $advanced_filter]);
+      unset($form[$advanced_filter]);
+    }
+
+    // Get the allowed values from field genre to convert in dropdown element
+    $fields_info = field_info_fields();
+    $field_genre_info = $fields_info['field_genre'];
+    $field_genre_options = array('' => t('All')) + list_allowed_values($field_genre_info);
+    $form['advanced_filters']['field_genre']['#type'] = 'select';
+    $form['advanced_filters']['field_genre']['#options'] = $field_genre_options;
+    $form['advanced_filters']['field_genre']['#size'] = 1;
+
+    // Remove the creator exposed filter that is used for curator direct search link
+    // from catalog item view page.
+    unset($form['field_creator']);
+    unset($form['#info']['filter-field_creator']);
+
+
+    // Move various field labels into HTML5 placeholders.
+    $placeholders = array(
+      'basic_filters' => array('keywords'),
+      'advanced_filters' => array(
+        'field_subjects_fulltext',
+        'field_location_fulltext',
+        'field_people_fulltext',
+        'field_date_year',
+        'field_date_year_1',
+      )
+    );
+    foreach ($placeholders as $filterset => $filters) {
+      foreach ($placeholders[$filterset] as $field_name) {
+         $form[$filterset][$field_name]['#attributes']["placeholder"] = t($form[$filterset][$field_name]["#title"]);
+
+         // TODO: replace the following with Modernizr js/css for backward compatibile form field labels.
+         unset($form[$filterset][$field_name]["#title"]);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_search_api_alter_callback_info().
+ */
+function laadp_search_search_api_alter_callback_info() {
+  $callbacks['laadp_search_custom_index_fields'] = array(
+    'name' => t('Generate some custom index fields.'),
+    'description' => t('This is an Alter Callback implementation to add custom fields to the index.'),
+    'class' => 'LaadpSearchCustomIndexFields',
+  );
+
+  return $callbacks;
+}
+
+/**
+ * Search API data alteration callback to dynamically create custom index fields.
+ */
+class LaadpSearchCustomIndexFields extends SearchApiAbstractAlterCallback {
+  public function alterItems(array &$items) {
+    foreach ($items as $id => &$item) {
+      if ($item->type == 'catalog_item') {
+        $node_wrapper = entity_metadata_wrapper('node', $item);
+        $date_normalized = $node_wrapper->field_date_created->value();
+        if (preg_match("/(19|20)[0-9][0-9]/", $date_normalized, $matches)) {
+          $year = $matches[0];
+          $items[$id]->field_date_year = $year;
+        }
+
+        // loop the referenced subjects and index as fulltext
+        $subjects = $node_wrapper->field_subject->value();
+        if (is_array($subjects)) {
+          foreach ($subjects as $subject) {
+            $items[$id]->field_subjects_fulltext[] = $subject->name;
+          }
+        }
+
+        // cloned fields to index as fulltext
+        $items[$id]->field_institution_fulltext = $node_wrapper->field_contributing_institution->value();
+        $items[$id]->field_location_fulltext = $node_wrapper->field_location->value();
+        $items[$id]->field_people_fulltext = $node_wrapper->field_people->value();
+      }
+    }
+  }
+
+  public function propertyInfo() {
+    return array(
+      'field_date_year' => array(
+        'label' => t('Date Year'),
+        'description' => t('Extract the Year from field_date_normalized to index separately.'),
+        'type' => 'string',
+      ),
+      'field_subjects_fulltext' => array(
+        'label' => t('Subjects Fulltext'),
+        'description' => t('Clone the subjects taxonomy term name in this field to allow fullsearch in subjects field.'),
+        'type' => 'list<text>',
+      ),
+      'field_institution_fulltext' => array(
+        'label' => t('Institution Fulltext'),
+        'description' => t('Clone the Institution field to allow fullsearch.'),
+        'type' => 'text',
+      ),
+      'field_location_fulltext' => array(
+        'label' => t('Location Fulltext'),
+        'description' => t('Clone the Location field to allow fullsearch.'),
+        'type' => 'list<text>',
+      ),
+      'field_people_fulltext' => array(
+        'label' => t('People Fulltext'),
+        'description' => t('Clone the People field to allow fullsearch.'),
+        'type' => 'list<text>',
+      ),
+    );
+  }
+}

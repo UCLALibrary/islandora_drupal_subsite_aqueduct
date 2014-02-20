@@ -1,0 +1,29 @@
+/*
+ * Web Fonts from fontspring.com
+ *
+ * All OpenType features and all extended glyphs have been removed.
+ * Fully installable fonts can be purchased at http://www.fontspring.com
+ *
+ * The fonts included in this stylesheet are subject to the End User License you purchased
+ * from Fontspring. The fonts are protected under domestic and international trademark and 
+ * copyright law. You are prohibited from modifying, reverse engineering, duplicating, or
+ * distributing this font software.
+ *
+ * (c) 2010-2013 Fontspring
+ *
+ *
+ *
+ *
+ * The fonts included are copyrighted by the vendor listed below.
+ *
+ * Vendor:      MADType
+ * License URL: http://www.fontspring.com/fflicense/madtype
+ *
+ *
+ */
+@font-face {
+  font-family: 'abel_probold';
+  src: url("../fonts/abelpro-bold-webfont.eot");
+  src: url("../fonts/abelpro-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/abelpro-bold-webfont.woff") format("woff"), url("../fonts/abelpro-bold-webfont.ttf") format("truetype"), url("../fonts/abelpro-bold-webfont.svg#abel_probold") format("svg");
+  font-weight: normal;
+  font-style: normal; }

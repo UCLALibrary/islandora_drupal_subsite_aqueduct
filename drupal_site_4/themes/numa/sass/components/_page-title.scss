@@ -1,0 +1,44 @@
+/**
+ * Hide page title on some pages.
+ */
+// This should be extended by body classes only.
+//
+// Usage:
+//
+//   body.section-somesection {
+//     @extend %no-page-title;
+//   }
+//
+body.no-page-title,
+%no-page-title {
+  .pane-page-content > .pane-title {
+    display: none;
+  }
+}
+
+/**
+ * On other pages, display an alternate page title font style.
+ */
+%font-style-page-title {
+  font-family: $abelpro-regular;
+  color: black;
+  font-size: 30px;
+  font-weight: 100;
+  text-transform: uppercase;
+  margin: 0;
+}
+@include at-breakpoint($tab) {
+  %font-style-page-title {
+    font-size: 60px;
+  }
+}
+
+%linked-article-title {
+  font-size: 38px;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 1px 1px 2px #222;
+  text-transform: uppercase;
+  font-weight: 100;
+  line-height: 0.9em;
+}

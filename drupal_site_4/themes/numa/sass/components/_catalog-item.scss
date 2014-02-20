@@ -1,0 +1,44 @@
+// Use the susy grid breakpoints we've defined for the project.
+@import "variables/breakpoints";
+
+.pane-nodefield-creator {
+  margin-top: 20px;
+}
+.pane-nodefield-physical-description,
+.pane-nodefield-genre,
+.pane-nodefield-subject,
+.pane-nodefield-oac-url {
+  margin: 20px 0;
+}
+
+/**
+ * Responsive mobile first layout overrides default panels layout.
+ */
+.node-type-catalog-item .panel-panel {
+  width: 100%;
+  float: left;
+}
+.node-type-catalog-item .panel-col-first .inside,
+.node-type-catalog-item .panel-col-last .inside {
+  margin: 0 0 $vert-spacing-unit;
+}
+.node-type-catalog-item .panel-col-last {
+  margin-top: $vert-spacing-unit*2;
+  padding: $vert-spacing-unit*2;
+  border-top: 1px solid #ccc;
+}
+
+@include at-breakpoint($tab) {
+  .node-type-catalog-item .panel-col-first {
+    width: 50%;
+    .inside {
+      margin-right: $horz-spacing-unit/2;
+    }
+  }
+  .node-type-catalog-item .panel-col-last {
+    width: 50%;
+    margin-top: 0;
+    padding: 0;
+    border-top: 0;
+  }
+}

@@ -1,0 +1,19 @@
+//
+// A mixin to automate hi-res background images for retina displays.
+// Based on a gitst by @joostkiens; extended to pass an optional background-size
+// variable, if we need to override the default background-size which will be
+// set to the original (lo-res) image's height and width for the retina display
+//
+@mixin hr-image($lr-image, $hr-image, $background-size: "") {
+  @if $background-size == "" {
+    $background-size: image-width($lr-image) image-height($lr-image);
+  }
+  background-image: url($lr-image);
+  @media print,
+    (-webkit-min-device-pixel-ratio: 1.25),
+    (-o-min-device-pixel-ratio: 5/4),
+    (min-resolution: 120dpi) {
+      background-image: url($hr-image);
+      @include background-size($background-size);
+  }
+}

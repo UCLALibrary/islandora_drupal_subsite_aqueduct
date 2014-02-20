@@ -1,0 +1,54 @@
+// Use the susy grid breakpoints we've defined for the project.
+@import "variables/breakpoints";
+
+.content-user-links {
+  margin: $vert-spacing-unit*2 0;
+}
+.content-user-links .stButton {
+  margin: 0;
+  .chicklets {
+    background: none;
+    padding-left: 0;
+    color: #b4b4b4;
+    padding-right: 10px;
+  }
+  .chicklets:hover {
+    opacity: 1;
+    -ms-filter: "alpha(opacity=100)";
+    filter: alpha(opacity=100);
+    color: #949494;
+  }
+  .chicklets:before {
+    @extend %icon-font;
+    font-size: 30px; // Large buttons for mobile.
+    vertical-align: middle;
+  }
+  .facebook:before {
+    content: '\e000'; // Facebook icon
+  }
+  .twitter:before {
+    content: '\e001'; // twitter icon
+  }
+  .pinterest:before {
+    content: '\e002'; // twitter icon
+  }
+  .instagram:before {
+    content: '\e003'; // twitter icon
+  }
+  .email:before {
+    content: '\e004'; // twitter icon
+  }
+}
+
+
+@include at-breakpoint($tab) {
+  .content-user-links {
+    margin: $vert-spacing-unit 0;
+    .stButton .chiclets {
+      padding-right: 3px;
+    }
+    .stButton .chicklets:before {
+      font-size: 16px;
+    }
+  }
+}

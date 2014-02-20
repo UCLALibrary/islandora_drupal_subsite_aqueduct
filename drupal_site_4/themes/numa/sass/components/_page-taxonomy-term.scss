@@ -1,0 +1,8 @@
+// Styling for all taxonomy term pages.
+.page-taxonomy-term {
+
+  // Turn the menu tree into an intermediary navigation menu
+  .pane-menu-tree ul.menu {
+    @extend %intermediary-navigation-menu;
+  }
+}

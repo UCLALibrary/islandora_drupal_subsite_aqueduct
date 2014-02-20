@@ -1,0 +1,37 @@
+/* line 5, ../../../sass/layouts/2col-brick/2col-brick.layout.scss */
+.panel-display--2col-brick {
+  *zoom: 1; }
+  /* line 38, ../../../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+  .panel-display--2col-brick:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+/* line 15, ../../../sass/layouts/2col-brick/2col-brick.layout.scss */
+.panel-col-top,
+.panel-col-main,
+.panel-col-middle,
+.panel-col-bottom,
+.panel-col-above-one,
+.panel-col-above-two,
+.panel-col-middle-one,
+.panel-col-middle-two {
+  width: 100%;
+  float: left; }
+
+/* line 20, ../../../sass/layouts/2col-brick/2col-brick.layout.scss */
+.panel-col-middle-one,
+.panel-col-middle-two {
+  margin-bottom: 20px; }
+
+@media (min-width: 44em) {
+  /* line 26, ../../../sass/layouts/2col-brick/2col-brick.layout.scss */
+  .panel-col-above-one,
+  .panel-col-middle-one {
+    width: 30%;
+    margin-right: 2%; }
+
+  /* line 31, ../../../sass/layouts/2col-brick/2col-brick.layout.scss */
+  .panel-col-above-two,
+  .panel-col-middle-two {
+    width: 68%; } }

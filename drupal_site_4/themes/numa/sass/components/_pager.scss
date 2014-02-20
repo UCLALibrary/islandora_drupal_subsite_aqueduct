@@ -1,0 +1,37 @@
+// Use the susy grid breakpoints we've defined for the project.
+@import "variables/breakpoints";
+
+.pane-views-pager {
+  border-top: 1px solid #cfcfcf;
+  margin: 25px 0;
+  padding: 25px 0;
+  border-bottom: 1px solid #cfcfcf;
+}
+@include at-breakpoint($tab) {
+  .pane-views-pager {
+    border-top: none;
+    margin: 25px 0;
+    padding: 0;
+    border-bottom: none;
+  }
+}
+
+.pager {
+  margin: 0;
+}
+.pager a {
+  @extend %font-family-abelpro-regular;
+  color: $base-font-color;
+  text-decoration: none;
+}
+.pager__item--current {
+  padding: 5px 7px;
+  background: $button-background;
+  color: white;
+  @extend %font-family-abelpro-regular;
+  font-weight: normal;
+}
+.pager__item {
+  white-space: nowrap;
+  padding: 0.5em 0.3em 0.5em 0.5em;
+}

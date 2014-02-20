@@ -1,0 +1,18 @@
+// Use compass list mixins.
+@import "compass/typography/lists";
+
+// A custom mixin for creating horizontal lists whose elements are justified
+// with the first and last items flush left and right respectively, while the
+// middle elements are centered and spaced evenly between them.
+@mixin horizontal-justified-list() {
+  @include horizontal-list;
+  text-align: justify;
+  &:after {
+    content: "";
+    margin-left: 100%;
+  }
+  li {
+    float: none;
+    display: inline-block;
+  }
+}

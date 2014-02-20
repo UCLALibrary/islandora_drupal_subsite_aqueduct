@@ -1,0 +1,8 @@
+<?php
+/**
+ * @file
+ * Code for the LAADP Architecture feature.
+ */
+
+include_once 'laadp_arch.features.inc';
+

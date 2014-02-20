@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the About Pages feature.
+ */
+
+include_once 'laadp_about.features.inc';

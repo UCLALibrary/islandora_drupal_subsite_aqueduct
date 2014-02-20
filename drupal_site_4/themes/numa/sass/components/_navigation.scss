@@ -1,0 +1,76 @@
+// Use the susy grid breakpoints we've defined for the project.
+@import "variables/breakpoints";
+
+// Use our custom mixin to create horizontally justified lists.
+@import "abstractions/horizontal-justified-list";
+
+.pane-system-main-menu {
+  ul.menu, ul.menu li {
+    list-style: none;
+    list-style-image: none;
+    margin: 0;
+    padding: 0;
+  }
+  .expanded ul.menu { /* Hide secondary menu items in main menu */
+    display: none;
+  }
+}
+
+@media (max-width: 44em) {
+  .pane-system-main-menu {
+    ul.menu {
+      @include horizontal-justified-list;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #858585;
+      line-height: 0;
+      margin-bottom: -5px;
+    }
+    ul.menu li {
+      line-height: 1em;
+    }
+  }
+}
+
+/**
+ * The site header changes style/layout for tablets/desktop.
+ */
+@include at-breakpoint($tab) {
+  .pane-system-main-menu ul.menu {
+    @include pie-clearfix;
+    width: 201px;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    li {
+      width: 100px;
+      float: left;
+    }
+  }
+}
+
+/* Style footer and header links the same way */
+.pane-system-main-menu ul.menu,
+.pane-bean-footer-links .content {
+  a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    @extend %font-family-abelpro-regular;
+    line-height: 1.7em;
+  }
+  a:hover,
+  a:focus,
+  a:active,
+  a.active,
+  .active-trail a {
+    color: $menu-link-active-color;
+    text-decoration: none;
+  }
+}
+.pane-bean-footer-links {
+  .field--name-field-footer-text > div {
+    float: left;
+    width: 50%;
+  }
+}

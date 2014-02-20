@@ -1,0 +1,40 @@
+// Use the susy grid breakpoints we've defined for the project.
+@import "variables/breakpoints";
+
+// Use hires images.
+@import "abstractions/hr-image";
+
+/**
+ * The site header changes style/layout for mobile/tablets/desktop.
+ *
+ * Sadly, the "!important" is required here, because Drupal is placing
+ * the site.layout.css *after* this code, where it should be before it.
+ */
+@include at-breakpoint($tab) {
+  .l-header-wrapper {
+    overflow: hidden;
+  }
+  .l-header {
+    margin: 20px auto !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    background: url(../images/858585.png) repeat-y 50% 50%;
+  }
+}
+@include at-breakpoint($desk) {
+  .l-header {
+    margin: 33px auto !important;
+  }
+}
+
+#logo {
+  display: block;
+  margin: 0 auto;
+  img {
+    @include hr-image('../images/logo.png', '../images/logo@2x.png', 100%);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    @include background-size(100%);
+    @include background-size(cover);
+  }
+}

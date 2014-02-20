@@ -1,0 +1,72 @@
+// Use the susy grid breakpoints we've defined for the project.
+@import "variables/breakpoints";
+
+.l-header,
+.l-content,
+.l-footer {
+  @include container; // Define these elements as the grid containers.
+}
+
+.l-header,
+.l-content,
+.l-footer {
+  margin: 0 auto;
+  padding: $vert-spacing-unit $horz-spacing-unit;
+  transition: padding .5s ease;
+}
+
+.l-region--highlighted,
+.l-region--help {
+  margin-bottom: $vert-spacing-unit;
+}
+
+@include at-breakpoint($tab) { // At a given Susy Media Layout, use a given amount of columns.
+  .l-header,
+  .l-content,
+  .l-footer {
+    @include set-container-width; // Reset only the container width (elements have already been declared as containers).
+  }
+  .l-content,
+  .l-footer {
+    padding-top: $vert-spacing-unit*2;
+    padding-bottom: $vert-spacing-unit*2;
+  }
+
+  .l-branding,
+  .l-region--footer-first {
+    @include span-columns(5, 12); // Span 5 out of 12 columns.
+  }
+  .l-region--header,
+  .l-region--footer-second {
+    @include span-columns(5 omega, 12); // Span the last (omega) 6 columns of 12.
+  }
+}
+
+@include at-breakpoint($desk) {
+  .l-header,
+  .l-content,
+  .l-footer {
+    @include set-container-width; // Reset only the container width (elements have already been declared as containers).
+  }
+  .l-header,
+  .l-footer { // Kill extra padding on desktop layout.
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .l-content { // Add some min-height on desktop so main content doesnt look empty.
+    min-height: 300px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .l-branding {
+    @include span-columns(8, 16); // Span 8 out of 16 columns.
+  }
+  .l-region--footer-first {
+    @include span-columns(7, 16); // Span 7 out of 16 columns.
+  }
+  .l-region--header,
+  .l-region--footer-second {
+    @include span-columns(7 omega, 16); // Span the last (omega) 7 columns of 16.
+  }
+}

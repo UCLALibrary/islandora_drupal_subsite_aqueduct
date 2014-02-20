@@ -1,0 +1,274 @@
+<?php
+
+/**
+ * @file
+ * Hooks and callbacks for this module.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function bsp_openseadragon_menu() {
+  return array(
+    'admin/bsp/openseadragon' => array(
+      'title' => 'OpenSeadragon',
+      'description' => 'Configure the OpenSeadragon viewer.',
+      'page callback' => 'drupal_get_form',
+      'access arguments' => array('administer site configuration'),
+      'page arguments' => array('bsp_openseadragon_admin'),
+      'file' => 'includes/admin.form.inc',
+      'type' => MENU_NORMAL_ITEM,
+    ),
+  );
+}
+
+/**
+ * Implements hook_theme().
+ */
+function bsp_openseadragon_theme() {
+  return array(
+    'bsp_openseadragon_viewer' => array(
+      'variables' => array(
+        'uri' => '',
+      ),
+      'template' => 'theme/bsp-openseadragon',
+    ),
+  );
+}
+
+/**
+ * Implements hook_bsp_viewer_info().
+ */
+function bsp_openseadragon_bsp_viewer_info() {
+  return array(
+    'bsp_openseadragon' => array(
+      'label' => t('OpenSeadragon'),
+        // Later we'll add DZI too.
+      'description' => t('OpenSeadragon viewer with djatoka as tilesource.'),
+      'configuration' => 'admin/bsp/openseadragon',
+      'callback' => 'bsp_openseadragon_callback',
+        // DZI has xml as mimetype? Not sure how to handle that.
+      'mimetype' => array('image/jp2'),
+    ),
+  );
+}
+
+/**
+* Implements hook_field_formatter_info().
+*/
+function bsp_openseadragon_field_formatter_info() {
+  return array(
+    'textfield_openseadragon' => array(
+      'label' => t('OpenSeadragon text field URI viewer'),
+      'field types' => array('text'),
+    ),
+  );
+}
+
+/**
+* Implements hook_field_formatter_view().
+*/
+function bsp_openseadragon_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  switch ($display['type']) {
+    case 'textfield_openseadragon':
+      if (!empty($items[0])) {
+        $library_path = libraries_get_path('openseadragon');
+        $module_path = drupal_get_path('module', 'bsp_openseadragon');
+        $settings = bsp_openseadragon_add_settings();
+        $params = array(
+          'bspOpenSeadragon' => array(
+            'resourceUri' => $items[0]['value'] .'/datastream/JP2/view',
+            'tileSize' => (int) variable_get('bsp_openseadragon_tile_size', '256'),
+            'tileOverlap' => (int) variable_get('bsp_openseadragon_tile_overlap', '0'),
+            'settings' => $settings),
+        );
+
+        drupal_add_js($params, 'setting');
+        drupal_add_js("$library_path/openseadragon.js");
+        drupal_add_js("$module_path/js/djtilesource.js");
+        drupal_add_js("$module_path/js/bsp_openseadragon.js");
+        drupal_add_css("$module_path/css/bsp_openseadragon.theme.css");
+
+        $element[0] = array(
+          '#markup' => '<div id="bsp-openseadragon" class="bsp-openseadragon"></div>',
+        );
+      }
+
+      break;
+  }
+  return $element;
+}
+
+/**
+ * Callback function for the viewer.
+ *
+ * @param array $params
+ *   Params required by the theme. We require the keys:
+ *   - jp2_url: The URL to the JP2 image.
+ * @param bspAbstractObject $fedora_object
+ *   The object that we are viewing.
+ *
+ * @return string
+ *   HTML repersentation of the OpenSeadragon viewer
+ */
+function bsp_openseadragon_callback($params = NULL, $fedora_object = NULL) {
+  if (isset($params['jp2_url'])) {
+    $uri = $params['jp2_url'];
+    return theme('bsp_openseadragon_viewer', array('uri' => $uri, 'fedora_object' => $fedora_object));
+  }
+}
+
+/**
+ * Implements hook_preprocess().
+ */
+function bsp_openseadragon_preprocess_bsp_openseadragon_viewer(&$variables) {
+  $variables['viewer_id'] = 'bsp-openseadragon';
+  $settings = bsp_openseadragon_add_settings();
+  // This is where we jam in some HOCR coordinates.
+  if (isset($variables['fedora_object']) && isset($_GET['solr'])) {
+    $params = $_GET['solr']['params'];
+    $params['fq'][] = format_string('PID:"!pid"', array(
+      '!pid' => $variables['fedora_object']->id,
+    ));
+    module_load_include('inc', 'bsp_paged_content', 'includes/highlighting');
+    $highlighting_info = bsp_paged_content_perform_solr_highlighting_query($_GET['solr']['query'], $params);
+    $highlights = array();
+
+    foreach ($highlighting_info as $pid => $info) {
+      foreach ($info['snippets'] as $snippet => $bounding_boxes) {
+        foreach ($bounding_boxes as $bounding_box) {
+          // The size on the x axis is used to calculate the proportional values
+          // under the openseadragon coordinate system.
+          $highlights[] = array(
+            'x' => $bounding_box['left'] / $info['page']['width'],
+            'y' => $bounding_box['top'] / $info['page']['width'],
+            'width' => ($bounding_box['right'] - $bounding_box['left']) / $info['page']['width'],
+            'height' => ($bounding_box['bottom'] - $bounding_box['top']) / $info['page']['width'],
+            'className' => "bsp-openseadragon-highlight",
+          );
+        }
+      }
+    }
+    $settings['overlays'] = $highlights;
+  }
+
+  drupal_add_js(array(
+      'bspOpenSeadragon' => array(
+        'pid' => isset($variables['fedora_object']) ? $variables['fedora_object']->id : NULL,
+        'resourceUri' => $variables['uri'],
+        'tileSize' => (int) variable_get('bsp_openseadragon_tile_size', '256'),
+        'tileOverlap' => (int) variable_get('bsp_openseadragon_tile_overlap', '0'),
+        'settings' => $settings,
+      ),
+    ), 'setting');
+  drupal_add_js("$module_path/js/bsp_openseadragon.js");
+  drupal_add_js("$library_path/openseadragon.js");
+  drupal_add_js("$module_path/js/djtilesource.js");
+  drupal_add_css("$module_path/css/bsp_openseadragon.theme.css");
+}
+
+function bsp_openseadragon_add_settings() {
+  // Variable fedora_object included in results, but not used.
+  $library_path = libraries_get_path('openseadragon');
+  $module_path = drupal_get_path('module', 'bsp_openseadragon');
+  $settings = array(
+    'id' => 'bsp-openseadragon',
+    'prefixUrl' => file_create_url("$library_path/images/"),
+  );
+
+  module_load_include('inc', 'bsp_openseadragon', 'includes/utilities');
+  $installed_version = bsp_openseadragon_get_installed_version();
+
+  if (version_compare($installed_version, '0.9.82') <= 0) {
+    // XXX: Version numbers don't quite line-up for the change in the nav image
+    // prefix URL, so now, let the hacking begin!... Just for compatibility
+    // with older versions.
+    $types = array('zoomIn', 'zoomOut', 'home', 'fullpage', 'previous', 'next');
+    $actions = array(
+      'REST' => 'rest',
+      'GROUP' => 'grouphover',
+      'HOVER' => 'hover',
+      'DOWN' => 'pressed',
+    );
+    foreach ($types as $type) {
+      foreach ($actions as $action => $namepart) {
+        $settings['navImages'][$type][$action] = format_string('!type_!action.png', array(
+          '!type' => strtolower($type),
+          '!action' => $namepart,
+        ));
+      }
+    }
+  }
+
+  $settings = array_merge($settings, bsp_openseadragon_get_settings());
+  foreach ($settings as $key => $val) {
+    if (filter_var($val, FILTER_VALIDATE_FLOAT)) {
+      $settings[$key] = (float) $val;
+    }
+    elseif (filter_var($val, FILTER_VALIDATE_INT)) {
+      $settings[$key] = (int) $val;
+    }
+  }
+
+  return $settings;
+}
+
+/**
+ * Get OpenSeadragon settings.
+ *
+ * @return array
+ *   Configuration options for OpenSeadragon.
+ */
+function bsp_openseadragon_get_settings() {
+  return variable_get('bsp_openseadragon_settings', array(
+      'debugMode' => FALSE,
+      'animationTime' => '1.5',
+      'blendTime' => '0.1',
+      'alwaysBlend' => FALSE,
+      'autoHideControls' => TRUE,
+      'immediateRender' => FALSE,
+      'wrapHorizontal' => FALSE,
+      'wrapVertical' => FALSE,
+      'wrapOverlays' => FALSE,
+      'panHorizontal' => TRUE,
+      'panVertical' => TRUE,
+      'minZoomImageRatio' => '0.8',
+      'maxZoomPixelRatio' => '2',
+      'visibilityRatio' => '0.5',
+      'springStiffness' => '5.0',
+      'imageLoaderLimit' => '5',
+      'clickTimeThreshold' => '300',
+      'clickDistThreshold' => '5',
+      'zoomPerClick' => '2.0',
+      'zoomPerScroll' => '1.2',
+      'zoomPerSecond' => '2.0',
+      'showNavigator' => TRUE,
+    )
+  );
+}
+
+/**
+ * Implements hook_process_theme().
+ */
+function bsp_openseadragon_preprocess_bsp_object_print(array &$variables) {
+  $object = $variables['object'];
+  if (isset($_GET['clip'])) {
+    $dimensions = array();
+    if (isset($_GET['dimensions'])) {
+      $dimensions = explode(',', $_GET['dimensions']);
+      $dimensions = array(
+        'width' => $dimensions[0],
+        'height' => $dimensions[1],
+      );
+    }
+    $variables['clip'] = $clip = $_GET['clip'];
+    $variables['content']['clip'] = array(
+      '#weight' => 0,
+      '#prefix' => "<div id='clip'>",
+      '#markup' => theme_image(array(
+                   'path' => $_GET['clip'], 'attributes' => $dimensions)),
+      '#suffix' => '</div>',
+    );
+  }
+}

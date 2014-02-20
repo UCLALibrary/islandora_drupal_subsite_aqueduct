@@ -1,0 +1,17 @@
+<?php
+
+/*
+ * Enable TextFormatter module dependency.
+ */
+function ct_catalog_item_update_7001() {
+  module_enable(array('textformatter', 'textformatter_contrib'));
+}
+
+/**
+ * Delete field_copyright to replace with long text field.
+ */
+function ct_catalog_item_update_7002(&$sandbox) {
+  // Remove the field_copyright field to replace with long text version.
+  field_delete_field("field_copyright");
+  field_purge_batch(1);
+}

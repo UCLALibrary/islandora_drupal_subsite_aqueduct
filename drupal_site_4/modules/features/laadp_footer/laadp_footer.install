@@ -1,0 +1,9 @@
+<?php
+
+
+/**
+ * Disable mini panels module.
+ */
+function laadp_footer_update_7001() {
+  module_disable(array('panels_mini'));
+}

@@ -1,0 +1,117 @@
+// Use the susy grid breakpoints we've defined for the project.
+@import "variables/breakpoints";
+
+
+.page-search .pane-views-row .views-row {
+  margin: $vert-spacing-unit*.75 0;
+}
+@include at-breakpoint($tab) {
+  .page-search .pane-views-row .views-row {
+    margin: $vert-spacing-unit 0;
+  }
+}
+
+.page-search .panel-col-last {
+  .pane-custom h3 {
+    margin-top: 0;
+  }
+  .pane-block {
+    background: #f6f4ed;
+    padding: 25px 21px;
+    margin-bottom: 20px;
+    .pane-title {
+      font-size: 1.1em;
+      margin-top: 0;
+    }
+  }
+  .pane-custom {
+    margin-bottom: 20px;
+  }
+}
+
+
+/**
+ * Responsive mobile first layout overrides default panels layout.
+ */
+.page-search .panel-panel {
+  width: 100%;
+}
+.page-search .panel-panel > .inside {
+  margin-left: 0;
+  margin-right: 0;
+}
+.page-search .panel-col-last .inside {
+  margin: 0;
+}
+@include at-breakpoint($tab) {
+  .page-search .panel-col-first {
+    width: 70%;
+    > .inside {
+      margin-right: $horz-spacing-unit*2;
+    }
+  }
+  .page-search .panel-col-last {
+    width: 29.9%;
+  }
+}
+
+.form-item-keywords {
+  label {
+    display: none;
+  }
+  input {
+    @include hr-image('../images/search.png', '../images/search@2x.png');
+    background-color: $content-bg-color;
+    background-repeat: no-repeat;
+    background-position: 5px 50%;
+    padding-left: 25px;
+    vertical-align: top;
+  }
+}
+
+.search-thumb {
+  float: left;
+  margin-right: $horz-spacing-unit;
+  img {
+    width: 100px;
+    vertical-align: top;
+    margin-top: 4px;
+  }
+}
+@include at-breakpoint($tab) {
+  .search-thumb {
+    margin-right: $horz-spacing-unit*2;
+  }
+}
+
+/**
+ * Search results search form.
+ */
+.pane-laadp-search-serachapi-block {
+  @include pie-clearfix;
+  position: relative;
+  .form-type-textfield {
+    width: 100%;
+    float: left;
+    padding-right: 5.5em;
+  }
+  .form-text {
+    width: 100%;
+    font-size: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-position: 10px 50%;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .form-submit {
+    position: absolute;
+    right: 0;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 5.5em;
+    font-size: 15px;
+  }
+}

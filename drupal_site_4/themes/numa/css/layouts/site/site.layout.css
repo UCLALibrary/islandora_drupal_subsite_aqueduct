@@ -1,0 +1,95 @@
+/* line 6, ../../../sass/layouts/site/site.layout.scss */
+.l-header,
+.l-content,
+.l-footer {
+  *zoom: 1;
+  max-width: 950px;
+  _width: 950px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: auto;
+  margin-right: auto; }
+  /* line 38, ../../../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+  .l-header:after,
+  .l-content:after,
+  .l-footer:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+/* line 12, ../../../sass/layouts/site/site.layout.scss */
+.l-header,
+.l-content,
+.l-footer {
+  margin: 0 auto;
+  padding: 20px 1em;
+  transition: padding .5s ease; }
+
+/* line 19, ../../../sass/layouts/site/site.layout.scss */
+.l-region--highlighted,
+.l-region--help {
+  margin-bottom: 20px; }
+
+@media (min-width: 44em) {
+  /* line 26, ../../../sass/layouts/site/site.layout.scss */
+  .l-header,
+  .l-content,
+  .l-footer {
+    max-width: 950px; }
+
+  /* line 30, ../../../sass/layouts/site/site.layout.scss */
+  .l-content,
+  .l-footer {
+    padding-top: 40px;
+    padding-bottom: 40px; }
+
+  /* line 36, ../../../sass/layouts/site/site.layout.scss */
+  .l-branding,
+  .l-region--footer-first {
+    width: 40.67797%;
+    float: left;
+    margin-right: 1.69492%; }
+
+  /* line 40, ../../../sass/layouts/site/site.layout.scss */
+  .l-region--header,
+  .l-region--footer-second {
+    width: 40.67797%;
+    float: right;
+    margin-right: 0; } }
+@media (min-width: 960px) {
+  /* line 48, ../../../sass/layouts/site/site.layout.scss */
+  .l-header,
+  .l-content,
+  .l-footer {
+    max-width: 950px; }
+
+  /* line 52, ../../../sass/layouts/site/site.layout.scss */
+  .l-header,
+  .l-footer {
+    padding-left: 0;
+    padding-right: 0; }
+
+  /* line 56, ../../../sass/layouts/site/site.layout.scss */
+  .l-content {
+    min-height: 300px;
+    padding-left: 40px;
+    padding-right: 40px; }
+
+  /* line 62, ../../../sass/layouts/site/site.layout.scss */
+  .l-branding {
+    width: 49.36709%;
+    float: left;
+    margin-right: 1.26582%; }
+
+  /* line 65, ../../../sass/layouts/site/site.layout.scss */
+  .l-region--footer-first {
+    width: 43.03797%;
+    float: left;
+    margin-right: 1.26582%; }
+
+  /* line 69, ../../../sass/layouts/site/site.layout.scss */
+  .l-region--header,
+  .l-region--footer-second {
+    width: 43.03797%;
+    float: right;
+    margin-right: 0; } }

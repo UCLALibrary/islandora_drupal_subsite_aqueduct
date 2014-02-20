@@ -1,0 +1,34 @@
+// Use the susy grid breakpoints we've defined for the project.
+@import "variables/breakpoints";
+@import "compass";
+
+.panel-display--2col-brick {
+  @include pie-clearfix;
+}
+.panel-col-top,
+.panel-col-main,
+.panel-col-middle,
+.panel-col-bottom,
+.panel-col-above-one,
+.panel-col-above-two,
+.panel-col-middle-one,
+.panel-col-middle-two {
+  width: 100%;
+  float: left;
+}
+.panel-col-middle-one,
+.panel-col-middle-two {
+  margin-bottom: $vert-spacing-unit;
+}
+
+@include at-breakpoint($tab) {
+  .panel-col-above-one,
+  .panel-col-middle-one {
+    width: 30%;
+    margin-right: 2%;
+  }
+  .panel-col-above-two,
+  .panel-col-middle-two {
+    width: 68%;
+  }
+}

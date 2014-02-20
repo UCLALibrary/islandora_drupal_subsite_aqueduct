@@ -1,0 +1,1459 @@
+@charset "UTF-8";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600);
+/* line 1, ../sass/base/_fields.scss */
+.field-label {
+  font-weight: 100;
+  color: #757373;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased; }
+
+/* line 2, ../sass/base/_forms.scss */
+.form-text,
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  background-color: #f6f4ed;
+  border: none;
+  padding: .2em .4em;
+  font-size: 1em; }
+
+/* line 10, ../sass/base/_forms.scss */
+select {
+  background-image: url(../images/select.png);
+  background-repeat: no-repeat;
+  background-position: 100% 50%; }
+
+/* line 16, ../sass/base/_forms.scss */
+.form-submit {
+  background: #88856c;
+  color: white;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  padding: .3em .8em;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  vertical-align: top; }
+
+/**
+ * Default backgroung colors.
+ */
+/* line 4, ../sass/base/_html.scss */
+html {
+  background: black;
+  overflow-x: hidden; }
+
+/* line 8, ../sass/base/_html.scss */
+body {
+  overflow-x: hidden; }
+
+/* line 12, ../sass/base/_html.scss */
+.l-header-wrapper,
+.l-footer-wrapper {
+  background: black;
+  color: #fff; }
+
+/* line 16, ../sass/base/_html.scss */
+.l-content-wrapper {
+  background: #f6f4ed; }
+
+/* line 19, ../sass/base/_html.scss */
+.l-content {
+  background: #fff; }
+
+/**
+ * Experimental responsive sticky footer.
+ * http://timothy-long.com/responsive-sticky-footer/
+ *
+ * While this sticky footer *is* responsive, for some unknown reason, the
+ * code introduces some wonkiness when you *resize* your browser window.
+ * It apears that if you do it too slowly various elements on the page
+ * including the logo and main body content stop shrinking themselves
+ * appropriately and begin to extend over the right edge of the screen.
+ * However, if you refresh the page, the problem does go away, so we're
+ * leaving this code in place for now.
+ */
+/* line 35, ../sass/base/_html.scss */
+html, body {
+  height: 100%; }
+
+/* line 38, ../sass/base/_html.scss */
+.l-page {
+  display: table;
+  height: 100%;
+  width: 100%; }
+
+/* line 45, ../sass/base/_html.scss */
+.l-header-wrapper,
+.l-content-wrapper,
+.l-footer-wrapper {
+  display: table-row;
+  height: 1px; }
+
+/* line 49, ../sass/base/_html.scss */
+.l-content-inner {
+  display: table-cell;
+  vertical-align: middle; }
+
+/* line 53, ../sass/base/_html.scss */
+.l-content-wrapper {
+  height: auto; }
+
+/* End sticky footer */
+/* line 1, ../sass/base/_media.scss */
+img, media {
+  max-width: 100%; }
+
+/* line 1, ../sass/base/_tabs.scss */
+.tabs--primary {
+  padding-top: 1em; }
+
+/*
+ * Web Fonts from fontspring.com
+ *
+ * All OpenType features and all extended glyphs have been removed.
+ * Fully installable fonts can be purchased at http://www.fontspring.com
+ *
+ * The fonts included in this stylesheet are subject to the End User License you purchased
+ * from Fontspring. The fonts are protected under domestic and international trademark and 
+ * copyright law. You are prohibited from modifying, reverse engineering, duplicating, or
+ * distributing this font software.
+ *
+ * (c) 2010-2013 Fontspring
+ *
+ *
+ *
+ *
+ * The fonts included are copyrighted by the vendor listed below.
+ *
+ * Vendor:      MADType
+ * License URL: http://www.fontspring.com/fflicense/madtype
+ *
+ *
+ */
+@font-face {
+  font-family: 'abel_probold';
+  src: url("../fonts/abelpro-bold-webfont.eot");
+  src: url("../fonts/abelpro-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/abelpro-bold-webfont.woff") format("woff"), url("../fonts/abelpro-bold-webfont.ttf") format("truetype"), url("../fonts/abelpro-bold-webfont.svg#abel_probold") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/*
+ * Web Fonts from fontspring.com
+ *
+ * All OpenType features and all extended glyphs have been removed.
+ * Fully installable fonts can be purchased at http://www.fontspring.com
+ *
+ * The fonts included in this stylesheet are subject to the End User License you purchased
+ * from Fontspring. The fonts are protected under domestic and international trademark and
+ * copyright law. You are prohibited from modifying, reverse engineering, duplicating, or
+ * distributing this font software.
+ *
+ * (c) 2010-2013 Fontspring
+ *
+ *
+ *
+ *
+ * The fonts included are copyrighted by the vendor listed below.
+ *
+ * Vendor:      MADType
+ * License URL: http://www.fontspring.com/fflicense/madtype
+ *
+ *
+ */
+@font-face {
+  font-family: 'abel_proregular';
+  src: url("../fonts/abelpro-regular-webfont.eot");
+  src: url("../fonts/abelpro-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/abelpro-regular-webfont.woff") format("woff"), url("../fonts/abelpro-regular-webfont.ttf") format("truetype"), url("../fonts/abelpro-regular-webfont.svg#abel_proregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/* line 7, ../sass/base/_typography.scss */
+body, .view-category-page .views-field-title, .view-category-page .views-field-title a, .facetapi-facetapi-checkbox-links .facetapi-active,
+.facetapi-facetapi-checkbox-links .facetapi-inactive,
+.facetapi-facetapi-links .facetapi-active,
+.facetapi-facetapi-links .facetapi-inactive, .pane-system-main-menu ul.menu a,
+.pane-bean-footer-links .content a, .intermediary-navigation-menu a,
+.front .pane-menu-tree ul.menu a,
+.page-resources .pane-menu-tree ul.menu a,
+.page-taxonomy-term .pane-menu-tree ul.menu a, .pager a, .pager__item--current, .page-search-form .views-exposed-form legend, .page-search-form .views-exposed-form .fieldset-title, .pane-node-field-related .field-label,
+.pane-node-field-resources .field-label {
+  font-family: "Abel_ProRegular", "Arial Narrow", Helvetica, Arial, sans-serif; }
+
+/* line 11, ../sass/base/_typography.scss */
+.field-label {
+  font-family: "Abel_ProBold", "Arial Narrow", Helvetica, Arial, sans-serif;
+  letter-spacing: -.04em; }
+
+/* line 16, ../sass/base/_typography.scss */
+a, a:visited, .node-type-standard-content .pane-page-title h1, .node-type-standard-content .pane-node-created {
+  font-family: "Open Sans", Trebuchet, Verdana, Arial, sans-serif; }
+
+/* line 20, ../sass/base/_typography.scss */
+.content-user-links .stButton .chicklets:before {
+  font-family: 'icons';
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased; }
+
+/* line 30, ../sass/base/_typography.scss */
+body {
+  font-size: 93.8%;
+  color: #5f5f5f; }
+
+/* line 36, ../sass/base/_typography.scss */
+a, a:visited {
+  color: #5c82bb;
+  text-decoration: underline;
+  transition: color 0.2s ease; }
+
+/* line 42, ../sass/base/_typography.scss */
+a:hover, a:active, a:focus {
+  color: #6999e1; }
+
+/**
+ * Provide a little extra spacing above secondary sections heading that follow
+ * a paragraph from a preceeding section.
+ */
+/* line 50, ../sass/base/_typography.scss */
+p + h2 {
+  margin-top: 1.5em; }
+
+/**
+ * Remove bottom padding from last paragraph inside main content.
+ */
+/* line 57, ../sass/base/_typography.scss */
+.field--name-field-main-content > p:last-child {
+  margin-bottom: 0; }
+
+/**
+ * Imported main content often contains style tags that define a fixed width;
+ * this must be overridden on mobile devices.
+ */
+@media (max-width: 44em) {
+  /* line 66, ../sass/base/_typography.scss */
+  .field--name-field-main-content {
+    overflow: hidden; }
+    /* line 68, ../sass/base/_typography.scss */
+    .field--name-field-main-content div {
+      width: 100% !important; } }
+/**
+ * Adjust main region padding when alternate background image is in use.
+ */
+/* line 10, ../sass/components/_background.scss */
+html.bg .l-content {
+  background: none;
+  margin: 0 auto;
+  padding-top: 60px;
+  padding-bottom: 60px; }
+
+@media (min-width: 44em) {
+  /* line 17, ../sass/components/_background.scss */
+  html.bg .l-content {
+    padding-left: 0;
+    padding-right: 0; } }
+/**
+ * Fixed background image solution 1: NO iOS Support.
+ *
+ * This option fixes the background image inside the page's main content section
+ * but this fails to work on iOS due to lacking/buggy support of background-size.
+ */
+/* line 29, ../sass/components/_background.scss */
+html.bg {
+  background: #000; }
+  /* line 31, ../sass/components/_background.scss */
+  html.bg .l-content-wrapper {
+    background: black url(../images/background.jpg) fixed no-repeat 50% 50%;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; }
+
+/** End solution 1 **/
+/**
+ * Fixed background image solution 2 for handhelds and iOS SUPPORT.
+ *
+ * iOS only supports background-size cover on the HTML element with height: 100%.
+ *
+ * See http://css-tricks.com/forums/topic/full-page-backgrounds-on-ios-background-size-cover/page/2/#post-134002
+
+ * Note this solution is not perfect:
+ *
+ * - Touching the menu bar at the top doesn’t scroll to the top of the page
+ *   (presumably because Safari thinks the HTML view hasn’t ‘moved’ at all).
+ *
+ * - If you scroll up when at the top of the page so that Safari itself moves
+ *   and then try to scroll down by touching near the bottom of Safari, the
+ *   content doesn’t scroll. I don’t encounter this issue unless scrolling
+ *   up while already at the top of the page and, even when I do encounter it,
+ *   the content still scrolls if I scroll by touching near the middle of the
+ *   screen.
+ *
+ * - On desktop browsers with large screens, short pages will display the
+ *   background image extending below the footer.
+ */
+@media handheld {
+  /* line 62, ../sass/components/_background.scss */
+  html.bg {
+    background: black url(../images/background.jpg) fixed no-repeat 50% 50%;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    overflow-x: hidden; }
+    /* line 68, ../sass/components/_background.scss */
+    html.bg body {
+      background: none;
+      height: 100%;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch; }
+    /* line 74, ../sass/components/_background.scss */
+    html.bg .l-content-wrapper {
+      background: none; } }
+/** End solution 2 **/
+/* line 4, ../sass/components/_branding.scss */
+.l-branding {
+  text-align: center; }
+
+@media (min-width: 960px) {
+  /* line 9, ../sass/components/_branding.scss */
+  .l-branding {
+    text-align: left; } }
+/* line 4, ../sass/components/_catalog-item.scss */
+.pane-nodefield-creator {
+  margin-top: 20px; }
+
+/* line 10, ../sass/components/_catalog-item.scss */
+.pane-nodefield-physical-description,
+.pane-nodefield-genre,
+.pane-nodefield-subject,
+.pane-nodefield-oac-url {
+  margin: 20px 0; }
+
+/**
+ * Responsive mobile first layout overrides default panels layout.
+ */
+/* line 17, ../sass/components/_catalog-item.scss */
+.node-type-catalog-item .panel-panel {
+  width: 100%;
+  float: left; }
+
+/* line 22, ../sass/components/_catalog-item.scss */
+.node-type-catalog-item .panel-col-first .inside,
+.node-type-catalog-item .panel-col-last .inside {
+  margin: 0 0 20px; }
+
+/* line 25, ../sass/components/_catalog-item.scss */
+.node-type-catalog-item .panel-col-last {
+  margin-top: 40px;
+  padding: 40px;
+  border-top: 1px solid #ccc; }
+
+@media (min-width: 44em) {
+  /* line 32, ../sass/components/_catalog-item.scss */
+  .node-type-catalog-item .panel-col-first {
+    width: 50%; }
+    /* line 34, ../sass/components/_catalog-item.scss */
+    .node-type-catalog-item .panel-col-first .inside {
+      margin-right: 0.5em; }
+
+  /* line 38, ../sass/components/_catalog-item.scss */
+  .node-type-catalog-item .panel-col-last {
+    width: 50%;
+    margin-top: 0;
+    padding: 0;
+    border-top: 0; } }
+/*
+ * Category page styles
+ */
+/* line 15, ../sass/components/_category-page.scss */
+.view-category-page .views-row {
+  float: left;
+  width: 48%;
+  margin: 10px 0;
+  position: relative;
+  text-align: center;
+  background: #555;
+  background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, color-stop(0%, #a5a59d), color-stop(100%, #181812));
+  background-image: -webkit-radial-gradient(center center, circle cover, #a5a59d, #181812);
+  background-image: -moz-radial-gradient(center center, circle cover, #a5a59d, #181812);
+  background-image: -o-radial-gradient(center center, circle cover, #a5a59d, #181812);
+  background-image: radial-gradient(center center, circle cover, #a5a59d, #181812);
+  max-width: 251px; }
+/* line 25, ../sass/components/_category-page.scss */
+.view-category-page .views-row-odd {
+  margin-right: 2%; }
+/* line 28, ../sass/components/_category-page.scss */
+.view-category-page .views-row-even {
+  margin-left: 2%; }
+/* line 31, ../sass/components/_category-page.scss */
+.view-category-page .views-field-title {
+  position: absolute;
+  bottom: 7%;
+  width: 86%;
+  margin: 0 7%;
+  font-size: 18px;
+  font-weight: 100;
+  line-height: 0.9em;
+  text-shadow: 1px 1px 2px #222;
+  text-transform: uppercase; }
+  /* line 41, ../sass/components/_category-page.scss */
+  .view-category-page .views-field-title, .view-category-page .views-field-title a {
+    color: #fff;
+    text-decoration: none; }
+/* line 47, ../sass/components/_category-page.scss */
+.view-category-page .field--name-field-image {
+  -webkit-transition: opacity 0.3s ease;
+  -moz-transition: opacity 0.3s ease;
+  -o-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+  opacity: 1; }
+  /* line 50, ../sass/components/_category-page.scss */
+  .view-category-page .field--name-field-image img {
+    vertical-align: bottom;
+    height: 100%; }
+/* line 55, ../sass/components/_category-page.scss */
+.view-category-page .views-row:hover .field--name-field-image {
+  opacity: 0.7; }
+
+/**
+ * Show a two-column grid of elements at 542 pixels wide.
+ */
+@media (min-width: 542px) {
+  /* line 64, ../sass/components/_category-page.scss */
+  .view-category-page {
+    margin-left: auto;
+    margin-right: auto;
+    width: 542px; }
+    /* line 68, ../sass/components/_category-page.scss */
+    .view-category-page .views-row {
+      float: left;
+      margin: 10px;
+      width: 251px;
+      height: 251px; }
+    /* line 75, ../sass/components/_category-page.scss */
+    .view-category-page .views-row-odd,
+    .view-category-page .views-row-even {
+      margin-left: 10px;
+      margin-right: 10px; }
+    /* line 79, ../sass/components/_category-page.scss */
+    .view-category-page .views-field-title {
+      font-size: 30px; } }
+/**
+ * At 813 pixels, 3 columns can fit in the grid.
+ */
+@media (min-width: 813px) {
+  /* line 89, ../sass/components/_category-page.scss */
+  .view-category-page {
+    width: 813px; }
+    /* line 91, ../sass/components/_category-page.scss */
+    .view-category-page .views-row {
+      width: 251px;
+      height: 251px; } }
+/**
+ * At Full desktop, adjust the spacing between grid items.
+ */
+@media (min-width: 960px) {
+  /* line 102, ../sass/components/_category-page.scss */
+  .view-category-page {
+    margin-left: -40px;
+    margin-right: -40px;
+    width: auto; }
+    /* line 106, ../sass/components/_category-page.scss */
+    .view-category-page .views-row {
+      float: left;
+      margin: 40px;
+      width: 251px;
+      height: 251px; }
+    /* line 113, ../sass/components/_category-page.scss */
+    .view-category-page .views-row-odd,
+    .view-category-page .views-row-even {
+      margin-left: 40px;
+      margin-right: 40px; }
+    /* line 117, ../sass/components/_category-page.scss */
+    .view-category-page .views-field-title {
+      font-size: 38px; } }
+/* line 3, ../sass/components/_facets.scss */
+ul.facetapi-facetapi-links, ul.facetapi-facetapi-links li,
+ul.facetapi-facetapi-checkbox-links,
+ul.facetapi-facetapi-checkbox-links li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  list-style-image: none; }
+
+/* line 10, ../sass/components/_facets.scss */
+.facetapi-limit-link {
+  background-image: url("../images/plus.png");
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  padding-left: 17px;
+  font-size: 0.8em;
+  margin-top: 15px;
+  display: block; }
+  @media print, (-webkit-min-device-pixel-ratio: 1.25), (-o-min-device-pixel-ratio: 5 / 4), (min-resolution: 120dpi) {
+    /* line 10, ../sass/components/_facets.scss */
+    .facetapi-limit-link {
+      background-image: url("../images/plus@2x.png");
+      -webkit-background-size: 11px 11px;
+      -moz-background-size: 11px 11px;
+      -o-background-size: 11px 11px;
+      background-size: 11px 11px; } }
+
+/* line 19, ../sass/components/_facets.scss */
+.facetapi-checkbox {
+  display: none; }
+
+/* line 24, ../sass/components/_facets.scss */
+.facetapi-facetapi-checkbox-links li,
+.facetapi-facetapi-links li {
+  margin-bottom: 11px; }
+/* line 28, ../sass/components/_facets.scss */
+.facetapi-facetapi-checkbox-links .facetapi-active,
+.facetapi-facetapi-checkbox-links .facetapi-inactive,
+.facetapi-facetapi-links .facetapi-active,
+.facetapi-facetapi-links .facetapi-inactive {
+  text-decoration: none;
+  color: #5f5f5f;
+  vertical-align: middle; }
+/* line 34, ../sass/components/_facets.scss */
+.facetapi-facetapi-checkbox-links .facetapi-active,
+.facetapi-facetapi-links .facetapi-active {
+  background-image: url("../images/checkbox-checked.png");
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  width: 14px;
+  height: 14px;
+  margin-right: 9px;
+  display: inline-block !important;
+  text-indent: -99999em; }
+  @media print, (-webkit-min-device-pixel-ratio: 1.25), (-o-min-device-pixel-ratio: 5 / 4), (min-resolution: 120dpi) {
+    /* line 34, ../sass/components/_facets.scss */
+    .facetapi-facetapi-checkbox-links .facetapi-active,
+    .facetapi-facetapi-links .facetapi-active {
+      background-image: url("../images/checkbox-checked@2x.png");
+      -webkit-background-size: 14px 14px;
+      -moz-background-size: 14px 14px;
+      -o-background-size: 14px 14px;
+      background-size: 14px 14px; } }
+/* line 45, ../sass/components/_facets.scss */
+.facetapi-facetapi-checkbox-links .facetapi-active:active,
+.facetapi-facetapi-checkbox-links .facetapi-inactive,
+.facetapi-facetapi-links .facetapi-active:active,
+.facetapi-facetapi-links .facetapi-inactive {
+  background-image: url("../images/checkbox-unchecked.png");
+  background-repeat: no-repeat;
+  background-position: 0 50%; }
+  @media print, (-webkit-min-device-pixel-ratio: 1.25), (-o-min-device-pixel-ratio: 5 / 4), (min-resolution: 120dpi) {
+    /* line 45, ../sass/components/_facets.scss */
+    .facetapi-facetapi-checkbox-links .facetapi-active:active,
+    .facetapi-facetapi-checkbox-links .facetapi-inactive,
+    .facetapi-facetapi-links .facetapi-active:active,
+    .facetapi-facetapi-links .facetapi-inactive {
+      background-image: url("../images/checkbox-unchecked@2x.png");
+      -webkit-background-size: 14px 14px;
+      -moz-background-size: 14px 14px;
+      -o-background-size: 14px 14px;
+      background-size: 14px 14px; } }
+/* line 50, ../sass/components/_facets.scss */
+.facetapi-facetapi-checkbox-links .facetapi-inactive,
+.facetapi-facetapi-links .facetapi-inactive {
+  padding-left: 23px; }
+/* line 55, ../sass/components/_facets.scss */
+.facetapi-facetapi-checkbox-links .facetapi-inactive:hover,
+.facetapi-facetapi-checkbox-links .facetapi-inactive:focus,
+.facetapi-facetapi-checkbox-links .facetapi-inactive:target,
+.facetapi-facetapi-links .facetapi-inactive:hover,
+.facetapi-facetapi-links .facetapi-inactive:focus,
+.facetapi-facetapi-links .facetapi-inactive:target {
+  outline: none;
+  background-image: url("../images/checkbox-hover.png");
+  background-repeat: no-repeat;
+  background-position: 0 50%; }
+  @media print, (-webkit-min-device-pixel-ratio: 1.25), (-o-min-device-pixel-ratio: 5 / 4), (min-resolution: 120dpi) {
+    /* line 55, ../sass/components/_facets.scss */
+    .facetapi-facetapi-checkbox-links .facetapi-inactive:hover,
+    .facetapi-facetapi-checkbox-links .facetapi-inactive:focus,
+    .facetapi-facetapi-checkbox-links .facetapi-inactive:target,
+    .facetapi-facetapi-links .facetapi-inactive:hover,
+    .facetapi-facetapi-links .facetapi-inactive:focus,
+    .facetapi-facetapi-links .facetapi-inactive:target {
+      background-image: url("../images/checkbox-hover@2x.png");
+      -webkit-background-size: 14px 14px;
+      -moz-background-size: 14px 14px;
+      -o-background-size: 14px 14px;
+      background-size: 14px 14px; } }
+/* line 61, ../sass/components/_facets.scss */
+.facetapi-facetapi-checkbox-links .facetapi-inactive:active,
+.facetapi-facetapi-links .facetapi-inactive:active {
+  outline: none;
+  background-image: url("../images/checkbox-pressed.png");
+  background-repeat: no-repeat;
+  background-position: 0 50%; }
+  @media print, (-webkit-min-device-pixel-ratio: 1.25), (-o-min-device-pixel-ratio: 5 / 4), (min-resolution: 120dpi) {
+    /* line 61, ../sass/components/_facets.scss */
+    .facetapi-facetapi-checkbox-links .facetapi-inactive:active,
+    .facetapi-facetapi-links .facetapi-inactive:active {
+      background-image: url("../images/checkbox-pressed@2x.png");
+      -webkit-background-size: 14px 14px;
+      -moz-background-size: 14px 14px;
+      -o-background-size: 14px 14px;
+      background-size: 14px 14px; } }
+/* line 67, ../sass/components/_facets.scss */
+.facetapi-facetapi-checkbox-links .element-invisible,
+.facetapi-facetapi-links .element-invisible {
+  /* This little bugger causes display issues on ios */
+  display: block;
+  clear: both; }
+
+/**
+ * Footer styles.
+ */
+/* line 4, ../sass/components/_footer.scss */
+.l-footer p {
+  margin: 0; }
+
+/* line 7, ../sass/components/_footer.scss */
+.l-footer .pane-title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1em;
+  margin-bottom: 20px; }
+
+/* line 13, ../sass/components/_footer.scss */
+.l-region--footer-second {
+  margin-top: 40px; }
+
+/* line 17, ../sass/components/_footer.scss */
+.l-footer .ucla-library {
+  background-image: url("../images/ucla-library-logo.png");
+  background-repeat: no-repeat;
+  width: 112px;
+  height: 20px;
+  text-indent: -999999em;
+  display: block;
+  clear: both;
+  margin-top: 16px;
+  float: left; }
+  @media print, (-webkit-min-device-pixel-ratio: 1.25), (-o-min-device-pixel-ratio: 5 / 4), (min-resolution: 120dpi) {
+    /* line 17, ../sass/components/_footer.scss */
+    .l-footer .ucla-library {
+      background-image: url("../images/ucla-library-logo@2x.png");
+      -webkit-background-size: 112px 20px;
+      -moz-background-size: 112px 20px;
+      -o-background-size: 112px 20px;
+      background-size: 112px 20px; } }
+
+/**
+ * Footer styles for small screens:
+ */
+@media screen and (max-width: 44em) {
+  /* line 33, ../sass/components/_footer.scss */
+  .l-footer .pane-title {
+    margin-bottom: 10px; }
+
+  /* line 36, ../sass/components/_footer.scss */
+  .l-region--footer-second {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #858585; } }
+/**
+ * Customizations for the frontpage.
+ */
+/* line 15, ../sass/components/_front.scss */
+.front .l-header {
+  background-image: none; }
+/* line 20, ../sass/components/_front.scss */
+.front .l-branding {
+  width: 100%;
+  margin: 0;
+  text-align: center; }
+
+/**
+ * The site header changes style/layout for mobile/tablets/desktop.
+ *
+ * Sadly, the "!important" is required here, because Drupal is placing
+ * the site.layout.css *after* this code, where it should be before it.
+ */
+@media (min-width: 44em) {
+  /* line 14, ../sass/components/_header.scss */
+  .l-header-wrapper {
+    overflow: hidden; }
+
+  /* line 17, ../sass/components/_header.scss */
+  .l-header {
+    margin: 20px auto !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    background: url(../images/858585.png) repeat-y 50% 50%; } }
+@media (min-width: 960px) {
+  /* line 25, ../sass/components/_header.scss */
+  .l-header {
+    margin: 33px auto !important; } }
+/* line 30, ../sass/components/_header.scss */
+#logo {
+  display: block;
+  margin: 0 auto; }
+  /* line 33, ../sass/components/_header.scss */
+  #logo img {
+    background-image: url("../images/logo.png");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; }
+    @media print, (-webkit-min-device-pixel-ratio: 1.25), (-o-min-device-pixel-ratio: 5 / 4), (min-resolution: 120dpi) {
+      /* line 33, ../sass/components/_header.scss */
+      #logo img {
+        background-image: url("../images/logo@2x.png");
+        -webkit-background-size: 100%;
+        -moz-background-size: 100%;
+        -o-background-size: 100%;
+        background-size: 100%; } }
+
+/* line 4, ../sass/components/_icons.scss */
+.content-user-links {
+  margin: 40px 0; }
+
+/* line 7, ../sass/components/_icons.scss */
+.content-user-links .stButton {
+  margin: 0; }
+  /* line 9, ../sass/components/_icons.scss */
+  .content-user-links .stButton .chicklets {
+    background: none;
+    padding-left: 0;
+    color: #b4b4b4;
+    padding-right: 10px; }
+  /* line 15, ../sass/components/_icons.scss */
+  .content-user-links .stButton .chicklets:hover {
+    opacity: 1;
+    -ms-filter: "alpha(opacity=100)";
+    filter: alpha(opacity=100);
+    color: #949494; }
+  /* line 21, ../sass/components/_icons.scss */
+  .content-user-links .stButton .chicklets:before {
+    font-size: 30px;
+    vertical-align: middle; }
+  /* line 26, ../sass/components/_icons.scss */
+  .content-user-links .stButton .facebook:before {
+    content: '\e000'; }
+  /* line 29, ../sass/components/_icons.scss */
+  .content-user-links .stButton .twitter:before {
+    content: '\e001'; }
+  /* line 32, ../sass/components/_icons.scss */
+  .content-user-links .stButton .pinterest:before {
+    content: '\e002'; }
+  /* line 35, ../sass/components/_icons.scss */
+  .content-user-links .stButton .instagram:before {
+    content: '\e003'; }
+  /* line 38, ../sass/components/_icons.scss */
+  .content-user-links .stButton .email:before {
+    content: '\e004'; }
+
+@media (min-width: 44em) {
+  /* line 45, ../sass/components/_icons.scss */
+  .content-user-links {
+    margin: 20px 0; }
+    /* line 47, ../sass/components/_icons.scss */
+    .content-user-links .stButton .chiclets {
+      padding-right: 3px; }
+    /* line 50, ../sass/components/_icons.scss */
+    .content-user-links .stButton .chicklets:before {
+      font-size: 16px; } }
+/**
+ * Because the site header is black, lets change the navbar background slightly
+ * for contrast, using a color that matches the theming of the site.
+ */
+/* line 5, ../sass/components/_navbar.scss */
+.navbar .bar {
+  background-color: #3d3c31; }
+
+/* line 8, ../sass/components/_navigation.scss */
+.pane-system-main-menu ul.menu, .pane-system-main-menu ul.menu li {
+  list-style: none;
+  list-style-image: none;
+  margin: 0;
+  padding: 0; }
+/* line 14, ../sass/components/_navigation.scss */
+.pane-system-main-menu .expanded ul.menu {
+  /* Hide secondary menu items in main menu */
+  display: none; }
+
+@media (max-width: 44em) {
+  /* line 21, ../sass/components/_navigation.scss */
+  .pane-system-main-menu ul.menu {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    *zoom: 1;
+    text-align: justify;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #858585;
+    line-height: 0;
+    margin-bottom: -5px; }
+    /* line 60, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+    .pane-system-main-menu ul.menu li {
+      list-style-image: none;
+      list-style-type: none;
+      margin-left: 0;
+      white-space: nowrap;
+      display: inline;
+      float: left;
+      padding-left: 4px;
+      padding-right: 4px; }
+      /* line 48, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+      .pane-system-main-menu ul.menu li:first-child, .pane-system-main-menu ul.menu li.first {
+        padding-left: 0; }
+      /* line 49, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+      .pane-system-main-menu ul.menu li:last-child {
+        padding-right: 0; }
+      /* line 50, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+      .pane-system-main-menu ul.menu li.last {
+        padding-right: 0; }
+    /* line 10, ../sass/abstractions/_horizontal-justified-list.scss */
+    .pane-system-main-menu ul.menu:after {
+      content: "";
+      margin-left: 100%; }
+    /* line 14, ../sass/abstractions/_horizontal-justified-list.scss */
+    .pane-system-main-menu ul.menu li {
+      float: none;
+      display: inline-block; }
+  /* line 29, ../sass/components/_navigation.scss */
+  .pane-system-main-menu ul.menu li {
+    line-height: 1em; } }
+/**
+ * The site header changes style/layout for tablets/desktop.
+ */
+@media (min-width: 44em) {
+  /* line 39, ../sass/components/_navigation.scss */
+  .pane-system-main-menu ul.menu {
+    width: 201px;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none; }
+    /* line 38, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+    .pane-system-main-menu ul.menu:after {
+      content: "";
+      display: table;
+      clear: both; }
+    /* line 45, ../sass/components/_navigation.scss */
+    .pane-system-main-menu ul.menu li {
+      width: 100px;
+      float: left; } }
+/* Style footer and header links the same way */
+/* line 55, ../sass/components/_navigation.scss */
+.pane-system-main-menu ul.menu a,
+.pane-bean-footer-links .content a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  line-height: 1.7em; }
+/* line 66, ../sass/components/_navigation.scss */
+.pane-system-main-menu ul.menu a:hover,
+.pane-system-main-menu ul.menu a:focus,
+.pane-system-main-menu ul.menu a:active,
+.pane-system-main-menu ul.menu a.active,
+.pane-system-main-menu ul.menu .active-trail a,
+.pane-bean-footer-links .content a:hover,
+.pane-bean-footer-links .content a:focus,
+.pane-bean-footer-links .content a:active,
+.pane-bean-footer-links .content a.active,
+.pane-bean-footer-links .content .active-trail a {
+  color: #c8be9f;
+  text-decoration: none; }
+
+/* line 72, ../sass/components/_navigation.scss */
+.pane-bean-footer-links .field--name-field-footer-text > div {
+  float: left;
+  width: 50%; }
+
+/* line 1, ../sass/components/_openseadragon.scss */
+.islandora-openseadragon {
+  width: 100% !important; }
+
+/* line 5, ../sass/components/_openseadragon.scss */
+.openseadragon-container button:focus {
+  outline: none; }
+
+/* Style menu links on intermediary navigation pages. */
+/* line 5, ../sass/components/_page-intermediary-navigation.scss */
+.intermediary-navigation-menu,
+.front .pane-menu-tree ul.menu,
+.page-resources .pane-menu-tree ul.menu,
+.page-taxonomy-term .pane-menu-tree ul.menu {
+  text-align: center; }
+  /* line 7, ../sass/components/_page-intermediary-navigation.scss */
+  .intermediary-navigation-menu, .intermediary-navigation-menu li,
+  .front .pane-menu-tree ul.menu,
+  .page-resources .pane-menu-tree ul.menu,
+  .page-taxonomy-term .pane-menu-tree ul.menu,
+  .front .pane-menu-tree ul.menu li,
+  .page-resources .pane-menu-tree ul.menu li,
+  .page-taxonomy-term .pane-menu-tree ul.menu li {
+    list-style: none;
+    list-style-image: none;
+    margin: 0;
+    padding: 0; }
+  /* line 13, ../sass/components/_page-intermediary-navigation.scss */
+  .intermediary-navigation-menu a,
+  .front .pane-menu-tree ul.menu a,
+  .page-resources .pane-menu-tree ul.menu a,
+  .page-taxonomy-term .pane-menu-tree ul.menu a {
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 0.78em;
+    color: #fff;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=64);
+    opacity: 0.64;
+    -webkit-transition: opacity 0.4s ease, text-shadow 0.8s ease, font-size 0.6s ease;
+    -moz-transition: opacity 0.4s ease, text-shadow 0.8s ease, font-size 0.6s ease;
+    -o-transition: opacity 0.4s ease, text-shadow 0.8s ease, font-size 0.6s ease;
+    transition: opacity 0.4s ease, text-shadow 0.8s ease, font-size 0.6s ease; }
+  /* line 25, ../sass/components/_page-intermediary-navigation.scss */
+  .intermediary-navigation-menu a:hover,
+  .intermediary-navigation-menu a:active,
+  .intermediary-navigation-menu a:focus,
+  .intermediary-navigation-menu a:target,
+  .front .pane-menu-tree ul.menu a:hover,
+  .page-resources .pane-menu-tree ul.menu a:hover,
+  .page-taxonomy-term .pane-menu-tree ul.menu a:hover,
+  .front .pane-menu-tree ul.menu a:active,
+  .page-resources .pane-menu-tree ul.menu a:active,
+  .page-taxonomy-term .pane-menu-tree ul.menu a:active,
+  .front .pane-menu-tree ul.menu a:focus,
+  .page-resources .pane-menu-tree ul.menu a:focus,
+  .page-taxonomy-term .pane-menu-tree ul.menu a:focus,
+  .front .pane-menu-tree ul.menu a:target,
+  .page-resources .pane-menu-tree ul.menu a:target,
+  .page-taxonomy-term .pane-menu-tree ul.menu a:target {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+    text-shadow: 1px 1px 0.4em rgba(0, 0, 0, 0.25);
+    outline: none; }
+
+@media screen and (max-width: 320px) {
+  /* line 35, ../sass/components/_page-intermediary-navigation.scss */
+  .intermediary-navigation-menu a,
+  .front .pane-menu-tree ul.menu a,
+  .page-resources .pane-menu-tree ul.menu a,
+  .page-taxonomy-term .pane-menu-tree ul.menu a {
+    font-size: 2em; } }
+@media screen and (min-width: 321px) {
+  /* line 44, ../sass/components/_page-intermediary-navigation.scss */
+  .intermediary-navigation-menu a,
+  .front .pane-menu-tree ul.menu a,
+  .page-resources .pane-menu-tree ul.menu a,
+  .page-taxonomy-term .pane-menu-tree ul.menu a {
+    font-size: 3em; } }
+@media screen and (min-width: 640px) {
+  /* line 53, ../sass/components/_page-intermediary-navigation.scss */
+  .intermediary-navigation-menu a,
+  .front .pane-menu-tree ul.menu a,
+  .page-resources .pane-menu-tree ul.menu a,
+  .page-taxonomy-term .pane-menu-tree ul.menu a {
+    font-size: 5em; } }
+@media screen and (min-width: 720px) {
+  /* line 62, ../sass/components/_page-intermediary-navigation.scss */
+  .intermediary-navigation-menu a,
+  .front .pane-menu-tree ul.menu a,
+  .page-resources .pane-menu-tree ul.menu a,
+  .page-taxonomy-term .pane-menu-tree ul.menu a {
+    font-size: 7em; } }
+@media screen and (min-width: 960px) {
+  /* line 71, ../sass/components/_page-intermediary-navigation.scss */
+  .intermediary-navigation-menu a,
+  .front .pane-menu-tree ul.menu a,
+  .page-resources .pane-menu-tree ul.menu a,
+  .page-taxonomy-term .pane-menu-tree ul.menu a {
+    font-size: 9em; } }
+/**
+ * Hide page title on some pages.
+ */
+/* line 14, ../sass/components/_page-title.scss */
+body.no-page-title .pane-page-content > .pane-title,
+.front .pane-page-content > .pane-title,
+.page-resources .pane-page-content > .pane-title,
+.page-search-form .pane-page-content > .pane-title,
+.node-type-standard-content .pane-page-content > .pane-title {
+  display: none; }
+
+/**
+ * On other pages, display an alternate page title font style.
+ */
+/* line 22, ../sass/components/_page-title.scss */
+.term-content-category .pane-page-content > .pane-title {
+  font-family: "Abel_ProRegular", "Arial Narrow", Helvetica, Arial, sans-serif;
+  color: black;
+  font-size: 30px;
+  font-weight: 100;
+  text-transform: uppercase;
+  margin: 0; }
+
+@media (min-width: 44em) {
+  /* line 31, ../sass/components/_page-title.scss */
+  .term-content-category .pane-page-content > .pane-title {
+    font-size: 60px; } }
+/* line 4, ../sass/components/_pager.scss */
+.pane-views-pager {
+  border-top: 1px solid #cfcfcf;
+  margin: 25px 0;
+  padding: 25px 0;
+  border-bottom: 1px solid #cfcfcf; }
+
+@media (min-width: 44em) {
+  /* line 11, ../sass/components/_pager.scss */
+  .pane-views-pager {
+    border-top: none;
+    margin: 25px 0;
+    padding: 0;
+    border-bottom: none; } }
+/* line 19, ../sass/components/_pager.scss */
+.pager {
+  margin: 0; }
+
+/* line 22, ../sass/components/_pager.scss */
+.pager a {
+  color: #5f5f5f;
+  text-decoration: none; }
+
+/* line 27, ../sass/components/_pager.scss */
+.pager__item--current {
+  padding: 5px 7px;
+  background: #88856c;
+  color: white;
+  font-weight: normal; }
+
+/* line 34, ../sass/components/_pager.scss */
+.pager__item {
+  white-space: nowrap;
+  padding: 0.5em 0.3em 0.5em 0.5em; }
+
+/* line 3, ../sass/components/_search-advanced-form.scss */
+.page-search-form .views-exposed-form {
+  max-width: 688px;
+  background: #fff;
+  margin: 0 auto; }
+  /* line 7, ../sass/components/_search-advanced-form.scss */
+  .page-search-form .views-exposed-form .views-exposed-widget {
+    float: none;
+    padding: 0; }
+    /* line 10, ../sass/components/_search-advanced-form.scss */
+    .page-search-form .views-exposed-form .views-exposed-widget > .form-submit {
+      margin: 0 25px 25px;
+      padding: 9px 16px; }
+  /* line 15, ../sass/components/_search-advanced-form.scss */
+  .page-search-form .views-exposed-form fieldset {
+    border: none;
+    margin: 0;
+    padding: 0; }
+  /* line 20, ../sass/components/_search-advanced-form.scss */
+  .page-search-form .views-exposed-form legend {
+    background: #000;
+    width: 100%;
+    padding: 16px 25px; }
+  /* line 25, ../sass/components/_search-advanced-form.scss */
+  .page-search-form .views-exposed-form label {
+    font-size: 18px;
+    font-weight: normal; }
+  /* line 29, ../sass/components/_search-advanced-form.scss */
+  .page-search-form .views-exposed-form legend, .page-search-form .views-exposed-form .fieldset-title {
+    color: #fff;
+    font-size: 23px;
+    text-decoration: none; }
+  /* line 35, ../sass/components/_search-advanced-form.scss */
+  .page-search-form .views-exposed-form .fieldset-wrapper {
+    padding: 33px 25px; }
+  /* line 38, ../sass/components/_search-advanced-form.scss */
+  .page-search-form .views-exposed-form #edit-advanced-filters .fieldset-wrapper {
+    padding-bottom: 20px; }
+
+/* line 43, ../sass/components/_search-advanced-form.scss */
+.page-search-form .views-exposed-form fieldset.collapsible .fieldset-legend {
+  display: inline;
+  padding: 0;
+  background: none; }
+
+/* line 48, ../sass/components/_search-advanced-form.scss */
+html.js .page-search-form .views-exposed-form fieldset.collapsible .fieldset-legend {
+  padding: 0;
+  background: none; }
+
+/* line 55, ../sass/components/_search-advanced-form.scss */
+#edit-basic-filters .fieldset-wrapper {
+  *zoom: 1;
+  position: relative; }
+  /* line 38, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+  #edit-basic-filters .fieldset-wrapper:after {
+    content: "";
+    display: table;
+    clear: both; }
+/* line 59, ../sass/components/_search-advanced-form.scss */
+#edit-basic-filters .form-type-textfield {
+  width: 100%;
+  float: left;
+  padding-right: 6em;
+  font-size: 15px; }
+/* line 65, ../sass/components/_search-advanced-form.scss */
+#edit-basic-filters .form-text {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+/* line 73, ../sass/components/_search-advanced-form.scss */
+#edit-basic-filters .form-submit {
+  position: absolute;
+  font-size: 15px;
+  right: 25px;
+  width: 5.5em;
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+/* line 85, ../sass/components/_search-advanced-form.scss */
+#edit-advanced-filters .form-item {
+  margin-bottom: 6px; }
+/* line 88, ../sass/components/_search-advanced-form.scss */
+#edit-advanced-filters .form-text, #edit-advanced-filters select {
+  width: 100%;
+  padding: 10px 13px; }
+/* line 92, ../sass/components/_search-advanced-form.scss */
+#edit-advanced-filters .form-item-field-date-year {
+  clear: left;
+  width: 45%;
+  margin-right: 5%;
+  float: left; }
+/* line 98, ../sass/components/_search-advanced-form.scss */
+#edit-advanced-filters .form-item-field-date-year-1 {
+  width: 45%;
+  position: relative;
+  margin-left: 5%;
+  float: right; }
+/* line 104, ../sass/components/_search-advanced-form.scss */
+#edit-advanced-filters .form-item-field-date-year-1:before {
+  content: "to";
+  position: absolute;
+  left: -1.5em;
+  text-align: center;
+  padding-top: 12px; }
+/* line 112, ../sass/components/_search-advanced-form.scss */
+#edit-advanced-filters .form-item-field-genre label {
+  clear: both; }
+
+/* line 117, ../sass/components/_search-advanced-form.scss */
+#edit-advanced-filters.collapsed {
+  height: 0;
+  padding: 0; }
+
+@-moz-document url-prefix() {
+  /* special margin fix for firefox */
+  /* line 122, ../sass/components/_search-advanced-form.scss */
+  #edit-advanced-filters.collapsed {
+    margin-bottom: -59px !important; } }
+
+@media (min-width: 500px) {
+  /* line 130, ../sass/components/_search-advanced-form.scss */
+  #edit-advanced-filters .form-item-field-people-fulltext,
+  #edit-advanced-filters .form-item-field-subjects-fulltext {
+    padding-right: 2%;
+    width: 50%;
+    float: left; }
+  /* line 136, ../sass/components/_search-advanced-form.scss */
+  #edit-advanced-filters .form-item-field-genre,
+  #edit-advanced-filters .form-item-field-location-fulltext {
+    padding-left: 2%;
+    width: 50%;
+    float: left; }
+  /* line 141, ../sass/components/_search-advanced-form.scss */
+  #edit-advanced-filters .form-item-field-date-year {
+    clear: left;
+    width: 20%;
+    margin-right: 4%;
+    float: left; }
+  /* line 147, ../sass/components/_search-advanced-form.scss */
+  #edit-advanced-filters .form-item-field-date-year-1 {
+    width: 20%;
+    position: relative;
+    margin-left: 4%;
+    margin-right: 2%;
+    float: left; }
+  /* line 154, ../sass/components/_search-advanced-form.scss */
+  #edit-advanced-filters .form-item-field-date-year-1:before {
+    content: "to";
+    position: absolute;
+    left: -1.5em;
+    text-align: center;
+    padding-top: 12px; }
+  /* line 161, ../sass/components/_search-advanced-form.scss */
+  #edit-advanced-filters .form-item-field-genre {
+    float: right;
+    position: relative; }
+    /* line 164, ../sass/components/_search-advanced-form.scss */
+    #edit-advanced-filters .form-item-field-genre label {
+      position: absolute;
+      bottom: 100%; } }
+/* line 5, ../sass/components/_search.scss */
+.page-search .pane-views-row .views-row {
+  margin: 15px 0; }
+
+@media (min-width: 44em) {
+  /* line 9, ../sass/components/_search.scss */
+  .page-search .pane-views-row .views-row {
+    margin: 20px 0; } }
+/* line 15, ../sass/components/_search.scss */
+.page-search .panel-col-last .pane-custom h3 {
+  margin-top: 0; }
+/* line 18, ../sass/components/_search.scss */
+.page-search .panel-col-last .pane-block {
+  background: #f6f4ed;
+  padding: 25px 21px;
+  margin-bottom: 20px; }
+  /* line 22, ../sass/components/_search.scss */
+  .page-search .panel-col-last .pane-block .pane-title {
+    font-size: 1.1em;
+    margin-top: 0; }
+/* line 27, ../sass/components/_search.scss */
+.page-search .panel-col-last .pane-custom {
+  margin-bottom: 20px; }
+
+/**
+ * Responsive mobile first layout overrides default panels layout.
+ */
+/* line 36, ../sass/components/_search.scss */
+.page-search .panel-panel {
+  width: 100%; }
+
+/* line 39, ../sass/components/_search.scss */
+.page-search .panel-panel > .inside {
+  margin-left: 0;
+  margin-right: 0; }
+
+/* line 43, ../sass/components/_search.scss */
+.page-search .panel-col-last .inside {
+  margin: 0; }
+
+@media (min-width: 44em) {
+  /* line 47, ../sass/components/_search.scss */
+  .page-search .panel-col-first {
+    width: 70%; }
+    /* line 49, ../sass/components/_search.scss */
+    .page-search .panel-col-first > .inside {
+      margin-right: 2em; }
+
+  /* line 53, ../sass/components/_search.scss */
+  .page-search .panel-col-last {
+    width: 29.9%; } }
+/* line 59, ../sass/components/_search.scss */
+.form-item-keywords label {
+  display: none; }
+/* line 62, ../sass/components/_search.scss */
+.form-item-keywords input {
+  background-image: url("../images/search.png");
+  background-color: #f6f4ed;
+  background-repeat: no-repeat;
+  background-position: 5px 50%;
+  padding-left: 25px;
+  vertical-align: top; }
+  @media print, (-webkit-min-device-pixel-ratio: 1.25), (-o-min-device-pixel-ratio: 5 / 4), (min-resolution: 120dpi) {
+    /* line 62, ../sass/components/_search.scss */
+    .form-item-keywords input {
+      background-image: url("../images/search@2x.png");
+      -webkit-background-size: 15px 15px;
+      -moz-background-size: 15px 15px;
+      -o-background-size: 15px 15px;
+      background-size: 15px 15px; } }
+
+/* line 72, ../sass/components/_search.scss */
+.search-thumb {
+  float: left;
+  margin-right: 1em; }
+  /* line 75, ../sass/components/_search.scss */
+  .search-thumb img {
+    width: 100px;
+    vertical-align: top;
+    margin-top: 4px; }
+
+@media (min-width: 44em) {
+  /* line 82, ../sass/components/_search.scss */
+  .search-thumb {
+    margin-right: 2em; } }
+/**
+ * Search results search form.
+ */
+/* line 90, ../sass/components/_search.scss */
+.pane-laadp-search-serachapi-block {
+  *zoom: 1;
+  position: relative; }
+  /* line 38, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+  .pane-laadp-search-serachapi-block:after {
+    content: "";
+    display: table;
+    clear: both; }
+  /* line 93, ../sass/components/_search.scss */
+  .pane-laadp-search-serachapi-block .form-type-textfield {
+    width: 100%;
+    float: left;
+    padding-right: 5.5em; }
+  /* line 98, ../sass/components/_search.scss */
+  .pane-laadp-search-serachapi-block .form-text {
+    width: 100%;
+    font-size: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-position: 10px 50%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+  /* line 108, ../sass/components/_search.scss */
+  .pane-laadp-search-serachapi-block .form-submit {
+    position: absolute;
+    right: 0;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 5.5em;
+    font-size: 15px; }
+
+@media (max-width: 44em) {
+  /* line 5, ../sass/components/_section-about.scss */
+  .pane-menu-about ul.menu {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    *zoom: 1;
+    text-align: justify; }
+    /* line 60, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+    .pane-menu-about ul.menu li {
+      list-style-image: none;
+      list-style-type: none;
+      margin-left: 0;
+      white-space: nowrap;
+      display: inline;
+      float: left;
+      padding-left: 4px;
+      padding-right: 4px; }
+      /* line 48, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+      .pane-menu-about ul.menu li:first-child, .pane-menu-about ul.menu li.first {
+        padding-left: 0; }
+      /* line 49, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+      .pane-menu-about ul.menu li:last-child {
+        padding-right: 0; }
+      /* line 50, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+      .pane-menu-about ul.menu li.last {
+        padding-right: 0; }
+    /* line 10, ../sass/abstractions/_horizontal-justified-list.scss */
+    .pane-menu-about ul.menu:after {
+      content: "";
+      margin-left: 100%; }
+    /* line 14, ../sass/abstractions/_horizontal-justified-list.scss */
+    .pane-menu-about ul.menu li {
+      float: none;
+      display: inline-block; } }
+/* line 6, ../sass/components/_standard-content.scss */
+.node-type-standard-content .l-content {
+  padding-top: 0; }
+/* line 9, ../sass/components/_standard-content.scss */
+.node-type-standard-content .l-region--help {
+  margin-bottom: 0; }
+/* line 12, ../sass/components/_standard-content.scss */
+.node-type-standard-content .panel-col-top {
+  background: #c0b493 url(../images/background.jpg) no-repeat 50% 50%;
+  background-size: cover;
+  margin-left: -20px;
+  margin-right: -20px;
+  margin-bottom: 20px;
+  padding: 20px 20px;
+  width: auto;
+  float: none; }
+/* line 23, ../sass/components/_standard-content.scss */
+.node-type-standard-content .panel-col-middle,
+.node-type-standard-content .pandl-col-bottom {
+  border-top: 1px solid #ccc;
+  margin-top: 20px;
+  padding-top: 20px; }
+/* line 29, ../sass/components/_standard-content.scss */
+.node-type-standard-content .pane-page-title,
+.node-type-standard-content .pane-node-created {
+  color: #fff;
+  text-shadow: 1px 1px 2px #222; }
+/* line 33, ../sass/components/_standard-content.scss */
+.node-type-standard-content .pane-page-title h1 {
+  font-size: 41px;
+  margin: 0;
+  font-weight: 600; }
+/* line 39, ../sass/components/_standard-content.scss */
+.node-type-standard-content .pane-node-created {
+  font-size: 18px;
+  margin: 0; }
+
+/* line 48, ../sass/components/_standard-content.scss */
+.pane-node-field-related .field-label,
+.pane-node-field-resources .field-label {
+  font-size: 23px;
+  margin: 0 0 20px; }
+/* line 53, ../sass/components/_standard-content.scss */
+.pane-node-field-related .field,
+.pane-node-field-resources .field {
+  margin-top: 10px; }
+
+@media (min-width: 44em) {
+  /* line 60, ../sass/components/_standard-content.scss */
+  .node-type-standard-content .panel-col-top {
+    margin-left: -40px;
+    margin-right: -40px;
+    margin-bottom: 40px;
+    padding: 40px 40px; }
+  /* line 67, ../sass/components/_standard-content.scss */
+  .node-type-standard-content .panel-col-middle,
+  .node-type-standard-content .pandl-col-bottom {
+    margin-top: 40px;
+    padding-top: 40px; }
+
+  /* line 74, ../sass/components/_standard-content.scss */
+  .pane-node-field-related .field-label,
+  .pane-node-field-resources .field-label {
+    margin-bottom: 40px; }
+  /* line 77, ../sass/components/_standard-content.scss */
+  .pane-node-field-related .field,
+  .pane-node-field-resources .field {
+    margin-top: 20px; } }
+/**
+ * Adjust the size of the video iframe to the width of the screen on small devices.
+ */
+@media screen and (max-width: 44em) {
+  /* line 7, ../sass/components/_video.scss */
+  iframe.video-filter {
+    width: 100% !important; } }

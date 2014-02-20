@@ -1,0 +1,8 @@
+// Use our custom mixin to create horizontally justified lists.
+@import "abstractions/horizontal-justified-list";
+
+@media (max-width: 44em) {
+  .pane-menu-about ul.menu {
+     @include horizontal-justified-list;
+  }
+}

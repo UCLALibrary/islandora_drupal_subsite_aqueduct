@@ -1,0 +1,72 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600);
+//@import url(http://fonts.googleapis.com/css?family=Abel);
+
+@import "../fonts/abelpro-bold";
+@import "../fonts/abelpro-regular";
+
+%font-family-abelpro-regular {
+  font-family: $abelpro-regular;
+}
+
+%font-family-abelpro-bold {
+  font-family: $abelpro-bold;
+  letter-spacing: -.04em;
+}
+
+%font-family-open-sans {
+  font-family: $open-sans;
+}
+
+%icon-font {
+  font-family: 'icons';
+  font-size: 15px;
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  @extend %font-family-abelpro-regular;
+  font-size: 93.8%; // 15 px
+  color: $base-font-color;
+}
+
+a, a:visited {
+  @extend %font-family-open-sans;
+  color: $base-link-color;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+a:hover, a:active, a:focus {
+  color: saturate(lighten($base-link-color, 10%), 25%);
+}
+
+/**
+ * Provide a little extra spacing above secondary sections heading that follow
+ * a paragraph from a preceeding section.
+ */
+p + h2 {
+  margin-top: 1.5em;
+}
+
+/**
+ * Remove bottom padding from last paragraph inside main content.
+ */
+.field--name-field-main-content > p:last-child {
+  margin-bottom: 0;
+}
+
+/**
+ * Imported main content often contains style tags that define a fixed width;
+ * this must be overridden on mobile devices.
+ */
+@media (max-width: 44em) {
+  .field--name-field-main-content {
+    overflow: hidden;
+    div {
+      width: 100% !important;
+    }
+  }
+}

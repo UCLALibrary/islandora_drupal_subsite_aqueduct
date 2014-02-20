@@ -1,0 +1,10 @@
+
+/**
+ * Adjust the size of the video iframe to the width of the screen on small devices.
+ */
+
+@media screen and (max-width: 44em) {
+  iframe.video-filter {
+    width: 100% !important;
+  }
+}

@@ -1,0 +1,109 @@
+.content-user-links * {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+.user-link__title,
+.user-link__content {
+  font-size: 10px;
+  font-weight: bold;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 18px !important;
+  color: #5b5b5b;
+  width: 107px;
+  margin: 0 0 1px;
+  padding: 0 0 0 22px;
+  box-sizing: border-box;
+}
+.user-link__title:hover {
+  color: #000;
+  cursor: pointer;
+}
+.user-link__content {
+  background: #d9d9d9;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+  cursor: default;
+  /*height: 18px;*/
+  padding: 0;
+}
+.user-link__close {
+  background: url(../images/sprite.png) no-repeat -10px -244px;
+  cursor: pointer;
+  float: left;
+  height: 18px;
+  width: 18px;
+  margin-right: 5px;
+}
+.user-link__close:hover {
+  background-position: -135px -210px;
+}
+.user-link__title--mybook {
+  background: url(../images/sprite.png) -10px -87px;
+}
+.user-link__title--print {
+  background: url(../images/sprite.png) -10px -138px;
+}
+.user-link__title--sharethis {
+  background: url(../images/sprite.png) -10px -113px;
+}
+
+.user-link--mybook .flag-mybook .flag:before {
+  vertical-align: middle;
+}
+
+/* Hide the print link on mobile devices. */
+@media all and (max-device width:480px) {
+  .user-link--print {
+    display: none;
+  }
+}
+
+
+/* Javascript states for expandible user links */
+.js .user-link--expandible .user-link__content {
+  display: none;
+}
+.js .user-link--expandible.is-expanded .user-link__title {
+  display: none;
+}
+.js .user-link--expandible.is-expanded .user-link__content {
+  display: inline-block;
+}
+
+/* Auto-expand the mybook flyout */
+.user-link__content--mybook {
+  width: auto;
+  padding-right: 10px;
+}
+
+/** ShareThis button overrides **/
+#page .stButton {
+  width: 11px !important;
+  height: 11px !important;
+  margin: 0 2px 0 0;
+}
+#page .stButton .chicklets {
+  padding: 0 !important;
+  height: 11px;
+  width: 11px;
+  background-repeat: no-repeat;
+}
+#page .stButton .facebook {
+  background: url(../images/share_facebook.png) no-repeat 0 0;
+}
+#page .stButton .twitter {
+  background: url(../images/share_twitter.png) no-repeat 0 0;
+}
+#page .stButton .email {
+  background: url(../images/share_email.png) no-repeat 0 0;
+}
+#page .stButton .linkedin {
+  background: url(../images/share_linkedin.png) no-repeat 0 0;
+}
+#page .stButton .googleplus {
+  background: url(../images/share_googleplus.png) no-repeat 0 0;
+}

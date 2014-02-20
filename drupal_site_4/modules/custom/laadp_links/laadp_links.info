@@ -1,0 +1,5 @@
+name = LAADP Links
+description = Custom share links for social media.
+core = 7.x
+package = LAADP
+version = 7.x-1.0

@@ -1,0 +1,121 @@
+// Use the susy grid breakpoints we've defined for the project.
+@import "variables/breakpoints";
+
+/*
+ * Category page styles
+ */
+
+.term-content-category {
+  .pane-page-content > .pane-title {
+    @extend %font-style-page-title;
+  }
+}
+
+.view-category-page {
+  .views-row {
+    float: left;
+    width: 48%;
+    margin: 10px 0;
+    position: relative;
+    text-align: center;
+    background: #555;
+    @include background-image(radial-gradient(center center, circle cover, #A5A59D, #181812));
+    max-width: 251px;
+  }
+  .views-row-odd {
+    margin-right: 2%;
+  }
+  .views-row-even {
+    margin-left: 2%;
+  }
+  .views-field-title {
+    position: absolute;
+    bottom: 7%;
+    width: 86%;
+    margin: 0 7%;
+    font-size: 18px;
+    font-weight: 100;
+    line-height: 0.9em;
+    text-shadow: 1px 1px 2px #222;
+    text-transform: uppercase;
+    &, a {
+      @extend %font-family-abelpro-regular;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+  .field--name-field-image {
+    @include transition(opacity .3s ease);
+    opacity: 1;
+    img {
+      vertical-align: bottom;
+      height: 100%;
+    }
+  }
+  .views-row:hover .field--name-field-image {
+    opacity: 0.7;
+  }
+}
+
+/**
+ * Show a two-column grid of elements at 542 pixels wide.
+ */
+@media (min-width: 542px) {
+  .view-category-page {
+    margin-left: auto;
+    margin-right: auto;
+    width: 542px; // (width + margin-left + margin-right * 2)
+    .views-row {
+      float: left;
+      margin: 10px;
+      width: 251px;
+      height: 251px;
+    }
+    .views-row-odd,
+    .views-row-even {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    .views-field-title {
+      font-size: 30px;
+    }
+  }
+}
+
+/**
+ * At 813 pixels, 3 columns can fit in the grid.
+ */
+@media (min-width: 813px) {
+  .view-category-page {
+    width: 813px; //(width + margin-left + margin-right * 3)
+    .views-row {
+      width: 251px;
+      height: 251px;
+    }
+  }
+}
+
+/**
+ * At Full desktop, adjust the spacing between grid items.
+ */
+@include at-breakpoint($desk) {
+  .view-category-page {
+    margin-left: -40px;
+    margin-right: -40px;
+    width: auto;
+    .views-row {
+      float: left;
+      margin: 40px;
+      width: 251px;
+      height: 251px;
+    }
+    .views-row-odd,
+    .views-row-even {
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+    .views-field-title {
+      font-size: 38px;
+    }
+  }
+}

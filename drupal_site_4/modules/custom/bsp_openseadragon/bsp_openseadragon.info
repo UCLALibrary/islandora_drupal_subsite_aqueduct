@@ -1,0 +1,8 @@
+name = BSP OpenSeadragon
+description = "OpenSeadragon viewer with option to serve images using djatoka"
+dependencies[] = libraries
+dependencies[] = proxy
+package = Islandora
+version = 7.x-dev
+core = 7.x
+php = 5.3

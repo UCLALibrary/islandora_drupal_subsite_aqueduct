@@ -1,0 +1,86 @@
+<?php
+/**
+ * @file
+ * Code for the laadp_footer feature.
+ */
+
+include_once 'laadp_footer.features.inc';
+
+/**
+ * Implements hook_post_features_enable_feature().
+ */
+function laadp_footer_post_features_enable_feature($component) {
+
+  // Certain features components must be enabled before importing the blocks.
+  static $enabled_components;
+  $enabled_components[] = $component;
+  drupal_set_message("Component: " . $component);
+  $required_components = array('bean_type', 'field_base', 'field_instance', 'variable');
+  foreach ($required_components as $required_component) {
+    if (!in_array($required_component, $enabled_components)) {
+      return;
+    }
+  }
+  drupal_set_message("Installing content! ");
+
+  // Create the three default footer blocks after the feature is installed.
+  $footer_about = array(
+    'delta' => 'footer-about',
+    'label' => t('Footer About'),
+    'title' => 'About the LAADP',
+    'type' => 'footer',
+    'view_mode' => 'default',
+    'data' => array(),
+    'field_footer_text' => array(
+      'und' => array(
+        '0' => array(
+          'value' => '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dui dolor, porta a sem sed, ornare ornare quam. In vestibulum metus sapien, a accumsan mi blandit vitae. Morbi varius tempus nulla, at pellentesque turpis hendrerit vitae. In lobortis, libero a ornare pharetra.</p>',
+          'format' => 'laadp_format',
+        ),
+      ),
+    ),
+  );
+
+$footer_links = array(
+    'delta' => 'footer-links',
+    'label' => t('Footer Links'),
+    'title' => '',
+    'type' => 'footer',
+    'view_mode' => 'default',
+    'data' => array(),
+    'field_footer_text' => array(
+      'und' => array(
+        '0' => array(
+          'value' => '<div class="first"><a href="#">About the Project</a><br />
+<a href="#">Partners</a><br />
+<div class="second">
+<a href="#">Contact</a></div><br />
+<a href="#">Copyright and Terms of Use</a></div>
+<a href="http://www.library.ucla.edu/" class="ucla-library">UCLA Library</a>',
+          'format' => 'laadp_format',
+        ),
+      ),
+    ),
+  );
+
+  // Save the beans, if they aren't already saved.
+  if (!bean_load_delta($footer_about['delta'])) {
+    $bean = bean_create($footer_about);
+    if (!bean_save($bean)) {
+      drupal_set_message('Footer about block could not be saved.');
+    }
+    else {
+      drupal_set_message('Footer about block was imported.');
+    }
+  }
+
+  if (!bean_load_delta($footer_links['delta'])) {
+    $bean = bean_create($footer_links);
+    if (!bean_save($bean)) {
+      drupal_set_message('Footer links bean could not be saved.');
+    }
+    else {
+      drupal_set_message('Footer links block was imported.');
+    }
+  }
+}

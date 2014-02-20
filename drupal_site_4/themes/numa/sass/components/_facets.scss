@@ -1,0 +1,71 @@
+ul.facetapi-facetapi-links,
+ul.facetapi-facetapi-checkbox-links {
+  &, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    list-style-image: none;
+  }
+}
+.facetapi-limit-link {
+  @include hr-image('../images/plus.png', '../images/plus@2x.png');
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  padding-left: 17px;
+  font-size: 0.8em;
+  margin-top: 15px;
+  display: block;
+}
+.facetapi-checkbox {
+  display: none;
+}
+.facetapi-facetapi-checkbox-links,
+.facetapi-facetapi-links {
+  li {
+    margin-bottom: 11px;
+  }
+  .facetapi-active,
+  .facetapi-inactive {
+    @extend %font-family-abelpro-regular;
+    text-decoration: none;
+    color: $base-font-color;
+    vertical-align: middle;
+  }
+  .facetapi-active {
+    @include hr-image('../images/checkbox-checked.png', '../images/checkbox-checked@2x.png');
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+    width: 14px;
+    height: 14px;
+    margin-right: 9px;
+    display: inline-block !important;
+    text-indent: -99999em;
+  }
+  .facetapi-active:active,
+  .facetapi-inactive {
+    @include hr-image('../images/checkbox-unchecked.png', '../images/checkbox-unchecked@2x.png');
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+  }
+  .facetapi-inactive {
+    padding-left: 23px;
+  }
+  .facetapi-inactive:hover,
+  .facetapi-inactive:focus,
+  .facetapi-inactive:target {
+    outline: none;
+    @include hr-image('../images/checkbox-hover.png', '../images/checkbox-hover@2x.png');
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+  }
+  .facetapi-inactive:active {
+    outline: none;
+    @include hr-image('../images/checkbox-pressed.png', '../images/checkbox-pressed@2x.png');
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+  }
+  .element-invisible { /* This little bugger causes display issues on ios */
+    display: block;
+    clear: both;
+  }
+}

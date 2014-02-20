@@ -1,0 +1,81 @@
+// Use the susy grid breakpoints we've defined for the project.
+@import "variables/breakpoints";
+
+.node-type-standard-content {
+  @extend %no-page-title;
+  .l-content {
+    padding-top: 0;
+  }
+  .l-region--help {
+    margin-bottom: 0;
+  }
+  .panel-col-top {
+    background: #c0b493 url(../images/background.jpg) no-repeat 50% 50%;
+    background-size: cover;
+    margin-left: -($vert-spacing-unit);
+    margin-right: -($vert-spacing-unit);
+    margin-bottom: $vert-spacing-unit;
+    padding: $vert-spacing-unit $vert-spacing-unit;
+    width: auto;
+    float: none;
+  }
+  .panel-col-middle,
+  .pandl-col-bottom {
+    border-top: 1px solid #ccc;
+    margin-top: $vert-spacing-unit;
+    padding-top: $vert-spacing-unit;
+  }
+  .pane-page-title,
+  .pane-node-created {
+    color: #fff;
+    text-shadow: 1px 1px 2px #222;
+  }
+  .pane-page-title h1 {
+    @extend %font-family-open-sans;
+    font-size: 41px;
+    margin: 0;
+    font-weight: 600;
+  }
+  .pane-node-created {
+    @extend %font-family-open-sans;
+    font-size: 18px;
+    margin: 0;
+  }
+}
+
+.pane-node-field-related,
+.pane-node-field-resources {
+  .field-label {
+    @extend %font-family-abelpro-regular;
+    font-size: 23px;
+    margin: 0 0 $vert-spacing-unit;
+  }
+  .field {
+    margin-top: $vert-spacing-unit/2;
+  }
+}
+
+@include at-breakpoint($tab) {
+  .node-type-standard-content {
+    .panel-col-top {
+      margin-left: -($vert-spacing-unit*2);
+      margin-right: -($vert-spacing-unit*2);
+      margin-bottom: $vert-spacing-unit*2;
+      padding: $vert-spacing-unit*2 $vert-spacing-unit*2;
+    }
+    .panel-col-middle,
+    .pandl-col-bottom {
+      margin-top: $vert-spacing-unit*2;
+      padding-top: $vert-spacing-unit*2;
+    }
+  }
+  .pane-node-field-related,
+  .pane-node-field-resources {
+    .field-label {
+      margin-bottom: $vert-spacing-unit*2;
+    }
+    .field {
+      margin-top: $vert-spacing-unit;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the LAADP Migration feature.
+ */
+
+include_once 'laadp_migration.features.inc';

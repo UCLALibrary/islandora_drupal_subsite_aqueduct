@@ -1,0 +1,170 @@
+.page-search-form {
+  @extend %no-page-title;
+  .views-exposed-form {
+    max-width: 688px;
+    background: #fff;
+    margin: 0 auto;
+    .views-exposed-widget {
+      float: none;
+      padding: 0;
+      > .form-submit {
+        margin: 0 25px 25px;
+        padding: 9px 16px;
+      }
+    }
+    fieldset {
+      border: none;
+      margin: 0;
+      padding: 0;
+    }
+    legend {
+      background: #000;
+      width: 100%;
+      padding: 16px 25px;
+    }
+    label {
+      font-size: 18px;
+      font-weight: normal;
+    }
+    legend, .fieldset-title {
+      color: #fff;
+      font-size: 23px;
+      @extend %font-family-abelpro-regular;
+      text-decoration: none;
+    }
+    .fieldset-wrapper {
+      padding: 33px 25px;
+    }
+    #edit-advanced-filters .fieldset-wrapper {
+      padding-bottom: 20px;
+    }
+  }
+}
+.page-search-form .views-exposed-form fieldset.collapsible .fieldset-legend {
+  display: inline;
+  padding: 0;
+  background: none;
+}
+html.js .page-search-form .views-exposed-form fieldset.collapsible .fieldset-legend {
+  padding: 0;
+  background: none;
+}
+
+
+#edit-basic-filters {
+  .fieldset-wrapper {
+    @include pie-clearfix;
+    position: relative;
+  }
+  .form-type-textfield {
+    width: 100%;
+    float: left;
+    padding-right: 6em;
+    font-size: 15px;
+  }
+  .form-text {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .form-submit {
+    position: absolute;
+    font-size: 15px;
+    right: 25px;
+    width: 5.5em;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+#edit-advanced-filters {
+  .form-item {
+    margin-bottom: 6px;
+  }
+  .form-text, select {
+    width: 100%;
+    padding: 10px 13px;
+  }
+  .form-item-field-date-year {
+    clear: left;
+    width: 45%;
+    margin-right: 5%;
+    float: left;
+  }
+  .form-item-field-date-year-1 {
+    width: 45%;
+    position: relative;
+    margin-left: 5%;
+    float: right;
+  }
+  .form-item-field-date-year-1:before {
+    content: "to";
+    position: absolute;
+    left: -1.5em;
+    text-align: center;
+    padding-top: 12px;
+  }
+  .form-item-field-genre {
+    label {
+      clear: both;
+    }
+  }
+}
+#edit-advanced-filters.collapsed {
+  height: 0;
+  padding: 0;
+}
+@-moz-document url-prefix() { /* special margin fix for firefox */
+  #edit-advanced-filters.collapsed {
+    margin-bottom: -59px !important;
+  }
+}
+
+@media (min-width:500px) {
+  #edit-advanced-filters {
+    .form-item-field-people-fulltext,
+    .form-item-field-subjects-fulltext {
+      padding-right: 2%;
+      width: 50%;
+      float: left;
+    }
+    .form-item-field-genre,
+    .form-item-field-location-fulltext {
+      padding-left: 2%;
+      width: 50%;
+      float: left;
+    }
+    .form-item-field-date-year {
+      clear: left;
+      width: 20%;
+      margin-right: 4%;
+      float: left;
+    }
+    .form-item-field-date-year-1 {
+      width: 20%;
+      position: relative;
+      margin-left: 4%;
+      margin-right: 2%;
+      float: left;
+    }
+    .form-item-field-date-year-1:before {
+      content: "to";
+      position: absolute;
+      left: -1.5em;
+      text-align: center;
+      padding-top: 12px;
+    }
+    .form-item-field-genre {
+      float: right;
+      position: relative;
+      label {
+        position: absolute;
+        bottom: 100%;
+      }
+    }
+  }
+}

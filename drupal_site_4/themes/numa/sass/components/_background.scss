@@ -1,0 +1,79 @@
+// Use the susy grid breakpoints we've defined for the project.
+@import "variables/breakpoints";
+
+// Use css3 background-size to make the background expand with screen/viewport size.
+@import "compass/css3/background-size";
+
+/**
+ * Adjust main region padding when alternate background image is in use.
+ */
+html.bg .l-content {
+  background: none;
+  margin: 0 auto;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+@include at-breakpoint($tab) {
+  html.bg .l-content {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/**
+ * Fixed background image solution 1: NO iOS Support.
+ *
+ * This option fixes the background image inside the page's main content section
+ * but this fails to work on iOS due to lacking/buggy support of background-size.
+ */
+html.bg {
+  background: #000;
+  .l-content-wrapper {
+    background: #000 url(../images/background.jpg) fixed no-repeat 50% 50%;
+    @include background-size(100%); // For browsers that dont support "cover";
+    @include background-size(cover);
+  }
+}
+/** End solution 1 **/
+
+/**
+ * Fixed background image solution 2 for handhelds and iOS SUPPORT.
+ *
+ * iOS only supports background-size cover on the HTML element with height: 100%.
+ *
+ * See http://css-tricks.com/forums/topic/full-page-backgrounds-on-ios-background-size-cover/page/2/#post-134002
+
+ * Note this solution is not perfect:
+ *
+ * - Touching the menu bar at the top doesn’t scroll to the top of the page
+ *   (presumably because Safari thinks the HTML view hasn’t ‘moved’ at all).
+ *
+ * - If you scroll up when at the top of the page so that Safari itself moves
+ *   and then try to scroll down by touching near the bottom of Safari, the
+ *   content doesn’t scroll. I don’t encounter this issue unless scrolling
+ *   up while already at the top of the page and, even when I do encounter it,
+ *   the content still scrolls if I scroll by touching near the middle of the
+ *   screen.
+ *
+ * - On desktop browsers with large screens, short pages will display the
+ *   background image extending below the footer.
+ */
+@media handheld {
+  html.bg {
+    background: #000 url(../images/background.jpg) fixed no-repeat 50% 50%;
+    @include background-size(100%); // For browsers that dont support "cover";
+    @include background-size(cover);
+    height: 100%;
+    overflow-x: hidden;
+    body {
+      background: none;
+      height: 100%;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .l-content-wrapper {
+      background: none; // Remove the background set by solution 1 above.
+    }
+  }
+}
+/** End solution 2 **/

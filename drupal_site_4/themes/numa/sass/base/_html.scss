@@ -1,0 +1,56 @@
+/**
+ * Default backgroung colors.
+ */
+html {
+  background: $page-bg-color;
+  overflow-x: hidden; // Fix mobile content layout glitches.
+}
+body {
+  overflow-x: hidden; // Fix mobile content layout glitches.
+}
+.l-header-wrapper,
+.l-footer-wrapper {
+  background: $page-bg-color;
+  color: #fff;
+}
+.l-content-wrapper {
+  background: $content-bg-color;
+}
+.l-content {
+  background: #fff;
+}
+
+/**
+ * Experimental responsive sticky footer.
+ * http://timothy-long.com/responsive-sticky-footer/
+ *
+ * While this sticky footer *is* responsive, for some unknown reason, the
+ * code introduces some wonkiness when you *resize* your browser window.
+ * It apears that if you do it too slowly various elements on the page
+ * including the logo and main body content stop shrinking themselves
+ * appropriately and begin to extend over the right edge of the screen.
+ * However, if you refresh the page, the problem does go away, so we're
+ * leaving this code in place for now.
+ */
+html, body {
+  height: 100%;
+}
+.l-page {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+.l-header-wrapper,
+.l-content-wrapper,
+.l-footer-wrapper {
+  display: table-row;
+  height: 1px;
+}
+.l-content-inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+.l-content-wrapper {
+  height: auto;
+}
+/* End sticky footer */

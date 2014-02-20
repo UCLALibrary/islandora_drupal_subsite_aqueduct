@@ -1,0 +1,12 @@
+// Use the susy grid breakpoints we've defined for the project.
+@import "variables/breakpoints";
+
+.l-branding {
+  text-align: center;
+}
+
+@include at-breakpoint($desk) {
+  .l-branding {
+    text-align: left;
+  }
+}

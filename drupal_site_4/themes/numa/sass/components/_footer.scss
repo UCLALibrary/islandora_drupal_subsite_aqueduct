@@ -1,0 +1,41 @@
+/**
+ * Footer styles.
+ */
+.l-footer p {
+  margin: 0;
+}
+.l-footer .pane-title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1em;
+  margin-bottom: $vert-spacing-unit;
+}
+.l-region--footer-second {
+  margin-top: 20px + $vert-spacing-unit;
+}
+
+.l-footer .ucla-library {
+  @include hr-image('../images/ucla-library-logo.png', '../images/ucla-library-logo@2x.png');
+  background-repeat: no-repeat;
+  width: image-width('../images/ucla-library-logo.png');
+  height: image-height('../images/ucla-library-logo.png');
+  text-indent: -999999em;
+  display: block;
+  clear: both;
+  margin-top: 16px;
+  float: left;
+}
+
+/**
+ * Footer styles for small screens:
+ */
+@media screen and (max-width: 44em) {
+  .l-footer .pane-title {
+    margin-bottom: $vert-spacing-unit/2;
+  }
+  .l-region--footer-second {
+    margin-top: $vert-spacing-unit*.75;
+    padding-top: $vert-spacing-unit*.75;
+    border-top: 1px solid #858585;
+  }
+}
