@@ -1,0 +1,83 @@
+name = Los Angelos Auqueduct Digital Platform
+description = Install for Los Angelos Auqueduct Digital Platform
+version = VERSION
+core = 7.x
+
+; Core modules
+dependencies[] = contextual
+dependencies[] = dashboard
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = taxonomy
+dependencies[] = shortcut
+dependencies[] = toolbar
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = dblog
+dependencies[] = syslog
+
+
+; Contrib modules
+dependencies[] = ctools
+dependencies[] = panels
+dependencies[] = panels_everywhere
+dependencies[] = views
+dependencies[] = views_ui
+dependencies[] = features
+dependencies[] = diff
+dependencies[] = strongarm
+dependencies[] = fences
+dependencies[] = devel
+dependencies[] = diff
+dependencies[] = semantic_panels
+dependencies[] = link
+dependencies[] = admin_theme
+dependencies[] = module_filter
+dependencies[] = field_group
+dependencies[] = backup_migrate
+dependencies[] = entity
+dependencies[] = linkit
+dependencies[] = token
+dependencies[] = ckeditor
+dependencies[] = insert
+dependencies[] = content_menu
+dependencies[] = video_filter
+dependencies[] = wysiwyg_filter
+dependencies[] = libraries
+dependencies[] = jquery_update
+dependencies[] = breakpoints
+dependencies[] = navbar
+dependencies[] = bean
+dependencies[] = textformatter
+dependencies[] = textformatter_contrib
+
+; Feeds migration modules
+dependencies[] = feeds
+dependencies[] = feeds_ui
+dependencies[] = feeds_tamper
+dependencies[] = feeds_tamper_ui
+dependencies[] = feeds_xls
+dependencies[] = job_scheduler
+dependencies[] = field_validation
+
+; Setup architecture and system features
+dependencies[] = laadp_system
+dependencies[] = laadp_migration
+dependencies[] = laadp_about
+dependencies[] = laadp_arch
+dependencies[] = laadp_category_page
+dependencies[] = laadp_search
+dependencies[] = laadp_footer
+
+; Setup custom modules
+dependencies[] = bsp_openseadragon
+dependencies[] = laadp_links
+
+; Setup global content types
+dependencies[] = ct_catalog_item
+dependencies[] = ct_standard
