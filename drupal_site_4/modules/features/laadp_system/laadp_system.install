@@ -6,8 +6,8 @@
 function laadp_system_update_7001() {
 
   // Use custom theme and Ember for admin theme.
-  theme_enable(array('numa', 'ember'));
-  variable_set('admin_theme', 'ember');
+  theme_enable(array('numa', 'seven'));
+  variable_set('admin_theme', 'seven');
   variable_set('theme_default', 'numa');
   theme_disable(array('seven', 'bartik'));
 
