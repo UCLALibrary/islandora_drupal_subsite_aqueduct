@@ -11,9 +11,9 @@ function laadp_system_update_7001() {
   variable_set('theme_default', 'numa');
   theme_disable(array('seven', 'bartik'));
 
-  // Replace toolbar module with navbar and its dependencies.
+  // Replace toolbar module with admin_toolbar and its dependencies.
   module_disable(array('toolbar'));
-  module_enable(array('jquery_update', 'breakpoints', 'navbar'));
+  module_enable(array('jquery_update', 'breakpoints', 'admin_menu', 'admin_menu_toolbar'));
   variable_set('jquery_update_jquery_version', '1.7');
 }
 

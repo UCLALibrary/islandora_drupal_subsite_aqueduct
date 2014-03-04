@@ -88,13 +88,13 @@ function laadp_users_user_default_permissions() {
     'module' => 'dashboard',
   );
 
-  // Exported permission: access navbar.
-  $permissions['access navbar'] = array(
-    'name' => 'access navbar',
+  // Exported permission: access administration menu.
+  $permissions['access administration menu'] = array(
+    'name' => 'access administration menu',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
     ),
-    'module' => 'navbar',
+    'module' => 'admin_menu',
   );
 
   // Exported permission: access proxy router.

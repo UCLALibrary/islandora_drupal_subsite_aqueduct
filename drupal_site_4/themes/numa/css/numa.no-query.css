@@ -789,13 +789,6 @@ ul.facetapi-facetapi-checkbox-links li {
     /* line 50, ../sass/components/_icons.scss */
     .content-user-links .stButton .chicklets:before {
       font-size: 16px; } }
-/**
- * Because the site header is black, lets change the navbar background slightly
- * for contrast, using a color that matches the theming of the site.
- */
-/* line 5, ../sass/components/_navbar.scss */
-.navbar .bar {
-  background-color: #3d3c31; }
 
 /* line 8, ../sass/components/_navigation.scss */
 .pane-system-main-menu ul.menu, .pane-system-main-menu ul.menu li {
