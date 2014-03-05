@@ -15,6 +15,11 @@ function laadp_users_user_default_roles() {
     'name' => 'LAADP Editor',
     'weight' => '2',
   );
+  
+  $roles['LAADP Admin'] = array(
+  		'name' => 'LAADP Admin',
+  		'weight' => '3',
+  );
 
   return $roles;
 }

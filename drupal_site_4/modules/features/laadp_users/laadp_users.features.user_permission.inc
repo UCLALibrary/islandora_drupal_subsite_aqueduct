@@ -15,6 +15,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'access admin theme',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'admin_theme',
   );
@@ -24,6 +25,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'access administration pages',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'system',
   );
@@ -33,6 +35,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'access backup and migrate',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'backup_migrate',
   );
@@ -42,6 +45,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'access backup files',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'backup_migrate',
   );
@@ -51,6 +55,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'access bean overview',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'bean',
   );
@@ -77,6 +82,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'access contextual links',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'contextual',
   );
@@ -93,6 +99,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'access administration menu',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'admin_menu',
   );
@@ -112,6 +119,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'access site in maintenance mode',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'system',
   );
@@ -121,6 +129,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'access site reports',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'system',
   );
@@ -135,28 +144,36 @@ function laadp_users_user_default_permissions() {
   // Exported permission: administer actions.
   $permissions['administer actions'] = array(
     'name' => 'administer actions',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'system',
   );
 
   // Exported permission: administer backup and migrate.
   $permissions['administer backup and migrate'] = array(
     'name' => 'administer backup and migrate',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'backup_migrate',
   );
 
   // Exported permission: administer bean settings.
   $permissions['administer bean settings'] = array(
     'name' => 'administer bean settings',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'bean',
   );
 
   // Exported permission: administer bean types.
   $permissions['administer bean types'] = array(
     'name' => 'administer bean types',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'bean',
   );
 
@@ -165,6 +182,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'administer beans',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'bean',
   );
@@ -172,35 +190,45 @@ function laadp_users_user_default_permissions() {
   // Exported permission: administer blocks.
   $permissions['administer blocks'] = array(
     'name' => 'administer blocks',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'block',
   );
 
   // Exported permission: administer ckeditor.
   $permissions['administer ckeditor'] = array(
     'name' => 'administer ckeditor',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'ckeditor',
   );
 
   // Exported permission: administer content types.
   $permissions['administer content types'] = array(
     'name' => 'administer content types',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: administer facets.
   $permissions['administer facets'] = array(
     'name' => 'administer facets',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'facetapi',
   );
 
   // Exported permission: administer features.
   $permissions['administer features'] = array(
     'name' => 'administer features',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'features',
   );
 
@@ -209,6 +237,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'administer feeds',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'feeds',
   );
@@ -216,70 +245,90 @@ function laadp_users_user_default_permissions() {
   // Exported permission: administer feeds_tamper.
   $permissions['administer feeds_tamper'] = array(
     'name' => 'administer feeds_tamper',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'feeds_tamper',
   );
 
   // Exported permission: administer fieldgroups.
   $permissions['administer fieldgroups'] = array(
     'name' => 'administer fieldgroups',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'field_group',
   );
 
   // Exported permission: administer filters.
   $permissions['administer filters'] = array(
     'name' => 'administer filters',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'filter',
   );
 
   // Exported permission: administer image styles.
   $permissions['administer image styles'] = array(
     'name' => 'administer image styles',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'image',
   );
 
   // Exported permission: administer linkit.
   $permissions['administer linkit'] = array(
     'name' => 'administer linkit',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'linkit',
   );
 
   // Exported permission: administer menu.
   $permissions['administer menu'] = array(
     'name' => 'administer menu',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'menu',
   );
 
   // Exported permission: administer mini panels.
   $permissions['administer mini panels'] = array(
     'name' => 'administer mini panels',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'panels_mini',
   );
 
   // Exported permission: administer module filter.
   $permissions['administer module filter'] = array(
     'name' => 'administer module filter',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'module_filter',
   );
 
   // Exported permission: administer modules.
   $permissions['administer modules'] = array(
     'name' => 'administer modules',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'system',
   );
 
   // Exported permission: administer nodes.
   $permissions['administer nodes'] = array(
     'name' => 'administer nodes',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'node',
   );
 
@@ -295,14 +344,18 @@ function laadp_users_user_default_permissions() {
   // Exported permission: administer permissions.
   $permissions['administer permissions'] = array(
     'name' => 'administer permissions',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'user',
   );
 
   // Exported permission: administer proxy.
   $permissions['administer proxy'] = array(
     'name' => 'administer proxy',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'proxy',
   );
 
@@ -311,6 +364,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'administer shortcuts',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'shortcut',
   );
@@ -318,14 +372,18 @@ function laadp_users_user_default_permissions() {
   // Exported permission: administer site configuration.
   $permissions['administer site configuration'] = array(
     'name' => 'administer site configuration',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'system',
   );
 
   // Exported permission: administer software updates.
   $permissions['administer software updates'] = array(
     'name' => 'administer software updates',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'system',
   );
 
@@ -334,6 +392,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'administer system menus',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'content_menu',
   );
@@ -343,6 +402,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'administer taxonomy',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'taxonomy',
   );
@@ -350,7 +410,9 @@ function laadp_users_user_default_permissions() {
   // Exported permission: administer themes.
   $permissions['administer themes'] = array(
     'name' => 'administer themes',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'system',
   );
 
@@ -359,6 +421,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'administer url aliases',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'path',
   );
@@ -368,6 +431,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'administer users',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'user',
   );
@@ -377,6 +441,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'block IP addresses',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'system',
   );
@@ -386,6 +451,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'bypass node access',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'node',
   );
@@ -393,14 +459,18 @@ function laadp_users_user_default_permissions() {
   // Exported permission: cancel account.
   $permissions['cancel account'] = array(
     'name' => 'cancel account',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'user',
   );
 
   // Exported permission: change own username.
   $permissions['change own username'] = array(
     'name' => 'change own username',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'user',
   );
 
@@ -409,6 +479,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'clear laadp_catalog_items feeds',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'feeds',
   );
@@ -418,6 +489,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'create any footer bean',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'bean',
   );
@@ -425,63 +497,81 @@ function laadp_users_user_default_permissions() {
   // Exported permission: create catalog_item content.
   $permissions['create catalog_item content'] = array(
     'name' => 'create catalog_item content',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: create mini panels.
   $permissions['create mini panels'] = array(
     'name' => 'create mini panels',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'panels_mini',
   );
 
   // Exported permission: create standard_content content.
   $permissions['create standard_content content'] = array(
     'name' => 'create standard_content content',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: create url aliases.
   $permissions['create url aliases'] = array(
     'name' => 'create url aliases',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'path',
   );
 
   // Exported permission: customize ckeditor.
   $permissions['customize ckeditor'] = array(
     'name' => 'customize ckeditor',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'ckeditor',
   );
 
   // Exported permission: customize shortcut links.
   $permissions['customize shortcut links'] = array(
     'name' => 'customize shortcut links',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'shortcut',
   );
 
   // Exported permission: delete any catalog_item content.
   $permissions['delete any catalog_item content'] = array(
     'name' => 'delete any catalog_item content',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: delete any footer bean.
   $permissions['delete any footer bean'] = array(
     'name' => 'delete any footer bean',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'bean',
   );
 
   // Exported permission: delete any standard_content content.
   $permissions['delete any standard_content content'] = array(
     'name' => 'delete any standard_content content',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'node',
   );
 
@@ -490,56 +580,71 @@ function laadp_users_user_default_permissions() {
     'name' => 'delete backup files',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
-    ),
+      'LAADP Admin' => 'LAADP Admin',
+      ),
     'module' => 'backup_migrate',
   );
 
   // Exported permission: delete own catalog_item content.
   $permissions['delete own catalog_item content'] = array(
     'name' => 'delete own catalog_item content',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: delete own standard_content content.
   $permissions['delete own standard_content content'] = array(
     'name' => 'delete own standard_content content',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: delete revisions.
   $permissions['delete revisions'] = array(
     'name' => 'delete revisions',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: delete terms in 1.
   $permissions['delete terms in 1'] = array(
     'name' => 'delete terms in 1',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: delete terms in 2.
   $permissions['delete terms in 2'] = array(
     'name' => 'delete terms in 2',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: delete terms in 3.
   $permissions['delete terms in 3'] = array(
     'name' => 'delete terms in 3',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: edit any catalog_item content.
   $permissions['edit any catalog_item content'] = array(
     'name' => 'edit any catalog_item content',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'node',
   );
 
@@ -548,6 +653,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'edit any footer bean',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'bean',
   );
@@ -555,49 +661,63 @@ function laadp_users_user_default_permissions() {
   // Exported permission: edit any standard_content content.
   $permissions['edit any standard_content content'] = array(
     'name' => 'edit any standard_content content',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: edit bean view mode.
   $permissions['edit bean view mode'] = array(
     'name' => 'edit bean view mode',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'bean',
   );
 
   // Exported permission: edit own catalog_item content.
   $permissions['edit own catalog_item content'] = array(
     'name' => 'edit own catalog_item content',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: edit own standard_content content.
   $permissions['edit own standard_content content'] = array(
     'name' => 'edit own standard_content content',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: edit terms in 1.
   $permissions['edit terms in 1'] = array(
     'name' => 'edit terms in 1',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: edit terms in 2.
   $permissions['edit terms in 2'] = array(
     'name' => 'edit terms in 2',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'taxonomy',
   );
 
   // Exported permission: edit terms in 3.
   $permissions['edit terms in 3'] = array(
     'name' => 'edit terms in 3',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'taxonomy',
   );
 
@@ -606,6 +726,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'import laadp_catalog_items feeds',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'feeds',
   );
@@ -613,14 +734,18 @@ function laadp_users_user_default_permissions() {
   // Exported permission: manage features.
   $permissions['manage features'] = array(
     'name' => 'manage features',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'features',
   );
 
   // Exported permission: notify of path changes.
   $permissions['notify of path changes'] = array(
     'name' => 'notify of path changes',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'pathauto',
   );
 
@@ -629,6 +754,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'perform backup',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'backup_migrate',
   );
@@ -636,7 +762,9 @@ function laadp_users_user_default_permissions() {
   // Exported permission: reset cache via router.
   $permissions['reset cache via router'] = array(
     'name' => 'reset cache via router',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'proxy',
   );
 
@@ -645,6 +773,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'restore from backup',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'backup_migrate',
   );
@@ -652,21 +781,27 @@ function laadp_users_user_default_permissions() {
   // Exported permission: revert revisions.
   $permissions['revert revisions'] = array(
     'name' => 'revert revisions',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: select account cancellation method.
   $permissions['select account cancellation method'] = array(
     'name' => 'select account cancellation method',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'user',
   );
 
   // Exported permission: switch shortcut sets.
   $permissions['switch shortcut sets'] = array(
     'name' => 'switch shortcut sets',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'shortcut',
   );
 
@@ -675,6 +810,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'tamper laadp_catalog_items',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'feeds_tamper',
   );
@@ -684,6 +820,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'unlock laadp_catalog_items feeds',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'feeds',
   );
@@ -693,6 +830,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'use text format laadp_format',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'filter',
   );
@@ -712,6 +850,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'view bean page',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'bean',
   );
@@ -721,6 +860,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'view bean revisions',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'bean',
   );
@@ -728,14 +868,18 @@ function laadp_users_user_default_permissions() {
   // Exported permission: view own unpublished content.
   $permissions['view own unpublished content'] = array(
     'name' => 'view own unpublished content',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'node',
   );
 
   // Exported permission: view revisions.
   $permissions['view revisions'] = array(
     'name' => 'view revisions',
-    'roles' => array(),
+    'roles' => array(
+      'LAADP Admin' => 'LAADP Admin',
+    ),
     'module' => 'node',
   );
 
@@ -744,6 +888,7 @@ function laadp_users_user_default_permissions() {
     'name' => 'view the administration theme',
     'roles' => array(
       'LAADP Editor' => 'LAADP Editor',
+      'LAADP Admin' => 'LAADP Admin',
     ),
     'module' => 'system',
   );
