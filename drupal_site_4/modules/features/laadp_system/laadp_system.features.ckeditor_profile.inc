@@ -77,7 +77,7 @@ function laadp_system_ckeditor_profile_defaults() {
           'video_filter' => array(
             'name' => 'video_filter',
             'desc' => 'Plugin to directly embed videos with the video filter module.',
-            'path' => '%base_path%sites/all/modules/video_filter/editors/ckeditor/',
+            'path' => '%base_path%sites/all/modules/contrib/video_filter/editors/ckeditor/',
             'buttons' => array(
               'video_filter' => array(
                 'label' => 'Video filter',
