@@ -169,9 +169,9 @@ function laadp_search_default_search_api_server() {
     "options" : {
       "clean_ids" : true,
       "scheme" : "http",
-      "host" : "sky.bluespark.com",
-      "port" : "8080",
-      "path" : "\\/solr\\/laadpdev",
+      "host" : "solrsearch.library.ucla.edu",
+      "port" : "80",
+      "path" : "\\/solr\\/drupal_site_4",
       "http_user" : "",
       "http_pass" : "",
       "excerpt" : 0,
