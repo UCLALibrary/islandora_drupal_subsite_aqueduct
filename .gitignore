@@ -1,1 +1,4 @@
 build
+drupal_site_4/*/settings*.php
+drupal_site_4/*/files
+drupal_site_4/*/private
