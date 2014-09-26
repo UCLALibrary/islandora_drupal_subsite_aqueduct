@@ -16,7 +16,7 @@
     margin-top: 0;
   }
   .pane-block {
-    background: #f6f4ed;
+    background: $content-bg-color;
     padding: 25px 21px;
     margin-bottom: 20px;
     .pane-title {
@@ -113,5 +113,52 @@
     padding-bottom: 10px;
     width: 5.5em;
     font-size: 15px;
+  }
+}
+
+body.page-browse {
+  .panel-2col-stacked {
+    .panel-col-first {
+      width: 70%;
+    }
+    .panel-col-last {
+      width: 30%;
+      ul.facetapi-facetapi-links {
+        background: $content-bg-color;
+        padding: 20px 15px;
+      }
+    }
+  }
+}
+
+div#views_infinite_scroll-ajax-loader {
+  text-align: center;
+  padding-top: 15px;
+  clear: both;
+}
+
+.view-subject-browse {
+  .view-content {
+    display: inline-block;
+    width: 100%;
+  }
+  .views-row {
+    background: $content-bg-color;
+    width: 180px;
+    padding: 10px;
+    margin-bottom: 20px;
+    .search-thumb {
+      margin-right: 0;
+      float: none;
+      img {
+        width: 100% !important;
+        margin-top: 0 !important;
+      }
+    }
+    .views-field-title {
+      width: 100%;
+      text-align: center;
+      margin: 10px 0 4px 0;
+    }
   }
 }

@@ -15,6 +15,7 @@ function numa_preprocess_html(&$variables) {
     'page-resources', // The resources page should have the background image.
     'page-taxonomy-term', // Taxonomy term pages should have the background image.
     'page-search-form', // The search form should have the background image.
+    'page-scholarship-author-posts', // The Author Posts should have the background image.
   );
   if (count(array_intersect($pages, $variables['classes_array']))) {
     $variables['bg'] = ' bg';

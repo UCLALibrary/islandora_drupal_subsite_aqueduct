@@ -1,7 +1,7 @@
 /* line 5, ../../../sass/layouts/2col-brick/2col-brick.layout.scss */
 .panel-display--2col-brick {
   *zoom: 1; }
-  /* line 38, ../../../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+  /* line 38, ../../../../../../../../../../../.rvm/gems/ruby-1.9.3-p484@omega.numa/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
   .panel-display--2col-brick:after {
     content: "";
     display: table;

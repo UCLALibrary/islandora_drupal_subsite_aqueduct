@@ -1,0 +1,29 @@
+/* Author bio pane */
+.pane-scholarship-author-bio-scholarship-bio-pane {
+  .field--type-image {
+    float: left;
+    margin-right: 20px;
+  }
+  .author-bio-summary {
+    font-style: italic;
+  }
+  .view-more-link {
+    clear: both;
+    margin-top: 8px;
+  }
+}
+
+/* Author posts page */
+.page-scholarship-author-posts {
+  .pane-page-content > .pane-title {
+    @extend %font-style-page-title;
+  }
+  .view-scholarship-author-bio {
+    @extend .view-category-page;
+  }
+}
+.pane-scholarship-author-bio-authors-posts {
+  .pane-title {
+    display: none;
+  }
+}

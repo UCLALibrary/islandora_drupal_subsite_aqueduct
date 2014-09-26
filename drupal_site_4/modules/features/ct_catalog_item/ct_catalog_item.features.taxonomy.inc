@@ -13,9 +13,9 @@ function ct_catalog_item_taxonomy_default_vocabularies() {
       'name' => 'Catalog Item Subjects',
       'machine_name' => 'subjects',
       'description' => '',
-      'hierarchy' => '0',
+      'hierarchy' => 0,
       'module' => 'taxonomy',
-      'weight' => '0',
+      'weight' => 0,
     ),
   );
 }

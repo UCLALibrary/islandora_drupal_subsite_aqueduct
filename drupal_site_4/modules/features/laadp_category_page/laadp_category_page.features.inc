@@ -7,8 +7,7 @@
 /**
  * Implements hook_ctools_plugin_api().
  */
-function laadp_category_page_ctools_plugin_api() {
-  list($module, $api) = func_get_args();
+function laadp_category_page_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "page_manager" && $api == "pages_default") {
     return array("version" => "1");
   }
@@ -17,7 +16,7 @@ function laadp_category_page_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function laadp_category_page_views_api() {
+function laadp_category_page_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
 }
 
@@ -41,10 +40,10 @@ function laadp_category_page_image_default_styles() {
         'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => '251',
-          'height' => '251',
+          'width' => 251,
+          'height' => 251,
         ),
-        'weight' => '1',
+        'weight' => 1,
       ),
     ),
   );

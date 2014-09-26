@@ -59,6 +59,18 @@ function laadp_search_views_default_views() {
   $handler->display->display_options['fields']['title_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title_1']['link_to_entity'] = 0;
+  /* Field: Indexed Node: Default Image */
+  $handler->display->display_options['fields']['field_default_image']['id'] = 'field_default_image';
+  $handler->display->display_options['fields']['field_default_image']['table'] = 'search_api_index_default_node_index';
+  $handler->display->display_options['fields']['field_default_image']['field'] = 'field_default_image';
+  $handler->display->display_options['fields']['field_default_image']['label'] = '';
+  $handler->display->display_options['fields']['field_default_image']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_default_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_default_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_default_image']['settings'] = array(
+    'image_style' => 'thumbnail',
+    'image_link' => 'content',
+  );
   /* Field: Indexed Node: Djatoka Image */
   $handler->display->display_options['fields']['field_djatoka_image']['id'] = 'field_djatoka_image';
   $handler->display->display_options['fields']['field_djatoka_image']['table'] = 'search_api_index_default_node_index';
@@ -75,6 +87,7 @@ function laadp_search_views_default_views() {
   $handler->display->display_options['fields']['field_djatoka_image']['element_wrapper_type'] = 'div';
   $handler->display->display_options['fields']['field_djatoka_image']['element_wrapper_class'] = 'search-thumb';
   $handler->display->display_options['fields']['field_djatoka_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_djatoka_image']['empty'] = '[field_default_image]';
   /* Field: Indexed Node: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'search_api_index_default_node_index';
@@ -232,6 +245,95 @@ function laadp_search_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['inherit_panels_path'] = '1';
   $export['search_solr'] = $view;
+
+  $view = new view();
+  $view->name = 'subject_browse';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'search_api_index_default_node_index';
+  $view->human_name = 'Catalog Item Browser';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'infinite_scroll';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '50';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['style_plugin'] = 'masonry_views';
+  $handler->display->display_options['style_options']['masonry_column_width'] = '180';
+  $handler->display->display_options['style_options']['masonry_gutter_width'] = '22';
+  $handler->display->display_options['style_options']['masonry_resizable'] = TRUE;
+  $handler->display->display_options['style_options']['masonry_animated'] = FALSE;
+  $handler->display->display_options['style_options']['masonry_fit_width'] = TRUE;
+  $handler->display->display_options['style_options']['masonry_rtl'] = FALSE;
+  $handler->display->display_options['style_options']['masonry_images_first'] = TRUE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Indexed Node: Node ID */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'search_api_index_default_node_index';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nid']['separator'] = '';
+  $handler->display->display_options['fields']['nid']['link_to_entity'] = 0;
+  /* Field: Indexed Node: Default Image */
+  $handler->display->display_options['fields']['field_default_image']['id'] = 'field_default_image';
+  $handler->display->display_options['fields']['field_default_image']['table'] = 'search_api_index_default_node_index';
+  $handler->display->display_options['fields']['field_default_image']['field'] = 'field_default_image';
+  $handler->display->display_options['fields']['field_default_image']['label'] = '';
+  $handler->display->display_options['fields']['field_default_image']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_default_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_default_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_default_image']['settings'] = array(
+    'image_style' => 'browse_page_thumbnail',
+    'image_link' => 'content',
+  );
+  /* Field: Indexed Node: Djatoka Image */
+  $handler->display->display_options['fields']['field_djatoka_image']['id'] = 'field_djatoka_image';
+  $handler->display->display_options['fields']['field_djatoka_image']['table'] = 'search_api_index_default_node_index';
+  $handler->display->display_options['fields']['field_djatoka_image']['field'] = 'field_djatoka_image';
+  $handler->display->display_options['fields']['field_djatoka_image']['label'] = '';
+  $handler->display->display_options['fields']['field_djatoka_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_djatoka_image']['alter']['text'] = '<img src="[field_djatoka_image]/datastream/TN/view" alt="[field_djatoka_image]"/>';
+  $handler->display->display_options['fields']['field_djatoka_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_djatoka_image']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['field_djatoka_image']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_djatoka_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_djatoka_image']['element_wrapper_type'] = 'div';
+  $handler->display->display_options['fields']['field_djatoka_image']['element_wrapper_class'] = 'search-thumb';
+  $handler->display->display_options['fields']['field_djatoka_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_djatoka_image']['empty'] = '[field_default_image]';
+  /* Field: Indexed Node: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'search_api_index_default_node_index';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['max_length'] = '20';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
+
+  /* Display: Catalog Item browser */
+  $handler = $view->new_display('panel_pane', 'Catalog Item browser', 'catalog_browse_pane');
+  $handler->display->display_options['allow']['use_pager'] = 0;
+  $handler->display->display_options['allow']['items_per_page'] = 0;
+  $handler->display->display_options['allow']['offset'] = 0;
+  $handler->display->display_options['allow']['link_to_view'] = 0;
+  $handler->display->display_options['allow']['more_link'] = 0;
+  $handler->display->display_options['allow']['path_override'] = 0;
+  $handler->display->display_options['allow']['title_override'] = 'title_override';
+  $handler->display->display_options['allow']['exposed_form'] = 0;
+  $handler->display->display_options['allow']['fields_override'] = 0;
+  $export['subject_browse'] = $view;
 
   return $export;
 }

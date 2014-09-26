@@ -59,17 +59,26 @@ html {
 body {
   overflow-x: hidden; }
 
-/* line 12, ../sass/base/_html.scss */
+@-moz-document url-prefix() {
+  /* line 12, ../sass/base/_html.scss */
+  body {
+    overflow-x: unset; } }
+
+/* line 17, ../sass/base/_html.scss */
+html.ie body {
+  overflow-x: visible; }
+
+/* line 22, ../sass/base/_html.scss */
 .l-header-wrapper,
 .l-footer-wrapper {
   background: black;
   color: #fff; }
 
-/* line 16, ../sass/base/_html.scss */
+/* line 26, ../sass/base/_html.scss */
 .l-content-wrapper {
   background: #f6f4ed; }
 
-/* line 19, ../sass/base/_html.scss */
+/* line 29, ../sass/base/_html.scss */
 .l-content {
   background: #fff; }
 
@@ -85,29 +94,29 @@ body {
  * However, if you refresh the page, the problem does go away, so we're
  * leaving this code in place for now.
  */
-/* line 35, ../sass/base/_html.scss */
+/* line 45, ../sass/base/_html.scss */
 html, body {
   height: 100%; }
 
-/* line 38, ../sass/base/_html.scss */
+/* line 48, ../sass/base/_html.scss */
 .l-page {
   display: table;
   height: 100%;
   width: 100%; }
 
-/* line 45, ../sass/base/_html.scss */
+/* line 55, ../sass/base/_html.scss */
 .l-header-wrapper,
 .l-content-wrapper,
 .l-footer-wrapper {
   display: table-row;
   height: 1px; }
 
-/* line 49, ../sass/base/_html.scss */
+/* line 59, ../sass/base/_html.scss */
 .l-content-inner {
   display: table-cell;
   vertical-align: middle; }
 
-/* line 53, ../sass/base/_html.scss */
+/* line 63, ../sass/base/_html.scss */
 .l-content-wrapper {
   height: auto; }
 
@@ -181,7 +190,7 @@ img, media {
   font-style: normal; }
 
 /* line 7, ../sass/base/_typography.scss */
-body, .view-category-page .views-field-title, .view-category-page .views-field-title a, .facetapi-facetapi-checkbox-links .facetapi-active,
+body, .view-category-page .views-field-title, .page-scholarship-author-posts .view-scholarship-author-bio .views-field-title, .view-category-page .views-field-title a, .page-scholarship-author-posts .view-scholarship-author-bio .views-field-title a, .facetapi-facetapi-checkbox-links .facetapi-active,
 .facetapi-facetapi-checkbox-links .facetapi-inactive,
 .facetapi-facetapi-links .facetapi-active,
 .facetapi-facetapi-links .facetapi-inactive, .pane-system-main-menu ul.menu a,
@@ -189,7 +198,7 @@ body, .view-category-page .views-field-title, .view-category-page .views-field-t
 .front .pane-menu-tree ul.menu a,
 .page-resources .pane-menu-tree ul.menu a,
 .page-taxonomy-term .pane-menu-tree ul.menu a, .pager a, .pager__item--current, .page-search-form .views-exposed-form legend, .page-search-form .views-exposed-form .fieldset-title, .pane-node-field-related .field-label,
-.pane-node-field-resources .field-label {
+.pane-node-field-resources .field-label, .pane-author .view-author .views-row .field--name-field-profile-name {
   font-family: "Abel_ProRegular", "Arial Narrow", Helvetica, Arial, sans-serif; }
 
 /* line 11, ../sass/base/_typography.scss */
@@ -198,7 +207,8 @@ body, .view-category-page .views-field-title, .view-category-page .views-field-t
   letter-spacing: -.04em; }
 
 /* line 16, ../sass/base/_typography.scss */
-a, a:visited, .node-type-standard-content .pane-page-title h1, .node-type-standard-content .pane-node-created {
+.page-post-style .pane-page-title h1, .page-post-style .pane-node-created, .pane-node-field-related .field a,
+.pane-node-field-resources .field a {
   font-family: "Open Sans", Trebuchet, Verdana, Arial, sans-serif; }
 
 /* line 20, ../sass/base/_typography.scss */
@@ -222,22 +232,32 @@ a, a:visited {
   text-decoration: underline;
   transition: color 0.2s ease; }
 
-/* line 42, ../sass/base/_typography.scss */
+/* line 41, ../sass/base/_typography.scss */
 a:hover, a:active, a:focus {
   color: #6999e1; }
+
+/* line 44, ../sass/base/_typography.scss */
+h2.pane-title {
+  line-height: 1.08em; }
+
+/* line 49, ../sass/base/_typography.scss */
+b,
+strong {
+  font-family: "Abel_ProBold", "Arial Narrow", Helvetica, Arial, sans-serif;
+  font-weight: normal; }
 
 /**
  * Provide a little extra spacing above secondary sections heading that follow
  * a paragraph from a preceeding section.
  */
-/* line 50, ../sass/base/_typography.scss */
+/* line 57, ../sass/base/_typography.scss */
 p + h2 {
   margin-top: 1.5em; }
 
 /**
  * Remove bottom padding from last paragraph inside main content.
  */
-/* line 57, ../sass/base/_typography.scss */
+/* line 64, ../sass/base/_typography.scss */
 .field--name-field-main-content > p:last-child {
   margin-bottom: 0; }
 
@@ -246,10 +266,10 @@ p + h2 {
  * this must be overridden on mobile devices.
  */
 @media (max-width: 44em) {
-  /* line 66, ../sass/base/_typography.scss */
+  /* line 73, ../sass/base/_typography.scss */
   .field--name-field-main-content {
     overflow: hidden; }
-    /* line 68, ../sass/base/_typography.scss */
+    /* line 75, ../sass/base/_typography.scss */
     .field--name-field-main-content div {
       width: 100% !important; } }
 /**
@@ -344,44 +364,69 @@ html.bg {
   .l-branding {
     text-align: left; } }
 /* line 4, ../sass/components/_catalog-item.scss */
-.pane-nodefield-creator {
-  margin-top: 20px; }
+.node-type-catalog-item .pane-node-body {
+  margin: 0; }
+  /* line 6, ../sass/components/_catalog-item.scss */
+  .node-type-catalog-item .pane-node-body p {
+    margin: 0 0 1em; }
+  /* line 9, ../sass/components/_catalog-item.scss */
+  .node-type-catalog-item .pane-node-body p:last-child {
+    margin: 0; }
 
-/* line 10, ../sass/components/_catalog-item.scss */
-.pane-nodefield-physical-description,
-.pane-nodefield-genre,
-.pane-nodefield-subject,
-.pane-nodefield-oac-url {
-  margin: 20px 0; }
+/* line 16, ../sass/components/_catalog-item.scss */
+span.field--name-field-location:after,
+span.field--name-field-people:after {
+  content: "; ";
+  margin-left: -3px; }
+/* line 20, ../sass/components/_catalog-item.scss */
+span.field--name-field-location:last-child:after,
+span.field--name-field-people:last-child:after {
+  content: ""; }
+
+/* line 25, ../sass/components/_catalog-item.scss */
+.vertical-spacer {
+  margin: 15px 0; }
+
+/* line 30, ../sass/components/_catalog-item.scss */
+.pane-flag-link.pane-node a {
+  background: #88856c;
+  width: 130px;
+  height: 34px;
+  display: table-cell;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle; }
 
 /**
  * Responsive mobile first layout overrides default panels layout.
  */
-/* line 17, ../sass/components/_catalog-item.scss */
+/* line 46, ../sass/components/_catalog-item.scss */
 .node-type-catalog-item .panel-panel {
   width: 100%;
   float: left; }
 
-/* line 22, ../sass/components/_catalog-item.scss */
+/* line 51, ../sass/components/_catalog-item.scss */
 .node-type-catalog-item .panel-col-first .inside,
 .node-type-catalog-item .panel-col-last .inside {
   margin: 0 0 20px; }
 
-/* line 25, ../sass/components/_catalog-item.scss */
+/* line 54, ../sass/components/_catalog-item.scss */
 .node-type-catalog-item .panel-col-last {
   margin-top: 40px;
   padding: 40px;
   border-top: 1px solid #ccc; }
 
 @media (min-width: 44em) {
-  /* line 32, ../sass/components/_catalog-item.scss */
+  /* line 61, ../sass/components/_catalog-item.scss */
   .node-type-catalog-item .panel-col-first {
     width: 50%; }
-    /* line 34, ../sass/components/_catalog-item.scss */
+    /* line 63, ../sass/components/_catalog-item.scss */
     .node-type-catalog-item .panel-col-first .inside {
       margin-right: 0.5em; }
 
-  /* line 38, ../sass/components/_catalog-item.scss */
+  /* line 67, ../sass/components/_catalog-item.scss */
   .node-type-catalog-item .panel-col-last {
     width: 50%;
     margin-top: 0;
@@ -391,7 +436,7 @@ html.bg {
  * Category page styles
  */
 /* line 15, ../sass/components/_category-page.scss */
-.view-category-page .views-row {
+.view-category-page .views-row, .page-scholarship-author-posts .view-scholarship-author-bio .views-row {
   float: left;
   width: 48%;
   margin: 10px 0;
@@ -405,13 +450,13 @@ html.bg {
   background-image: radial-gradient(center center, circle cover, #a5a59d, #181812);
   max-width: 251px; }
 /* line 25, ../sass/components/_category-page.scss */
-.view-category-page .views-row-odd {
+.view-category-page .views-row-odd, .page-scholarship-author-posts .view-scholarship-author-bio .views-row-odd {
   margin-right: 2%; }
 /* line 28, ../sass/components/_category-page.scss */
-.view-category-page .views-row-even {
+.view-category-page .views-row-even, .page-scholarship-author-posts .view-scholarship-author-bio .views-row-even {
   margin-left: 2%; }
 /* line 31, ../sass/components/_category-page.scss */
-.view-category-page .views-field-title {
+.view-category-page .views-field-title, .page-scholarship-author-posts .view-scholarship-author-bio .views-field-title {
   position: absolute;
   bottom: 7%;
   width: 86%;
@@ -422,22 +467,22 @@ html.bg {
   text-shadow: 1px 1px 2px #222;
   text-transform: uppercase; }
   /* line 41, ../sass/components/_category-page.scss */
-  .view-category-page .views-field-title, .view-category-page .views-field-title a {
+  .view-category-page .views-field-title, .page-scholarship-author-posts .view-scholarship-author-bio .views-field-title, .view-category-page .views-field-title a, .page-scholarship-author-posts .view-scholarship-author-bio .views-field-title a {
     color: #fff;
     text-decoration: none; }
 /* line 47, ../sass/components/_category-page.scss */
-.view-category-page .field--name-field-image {
+.view-category-page .field--name-field-image, .page-scholarship-author-posts .view-scholarship-author-bio .field--name-field-image {
   -webkit-transition: opacity 0.3s ease;
   -moz-transition: opacity 0.3s ease;
   -o-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
   opacity: 1; }
   /* line 50, ../sass/components/_category-page.scss */
-  .view-category-page .field--name-field-image img {
+  .view-category-page .field--name-field-image img, .page-scholarship-author-posts .view-scholarship-author-bio .field--name-field-image img {
     vertical-align: bottom;
     height: 100%; }
 /* line 55, ../sass/components/_category-page.scss */
-.view-category-page .views-row:hover .field--name-field-image {
+.view-category-page .views-row:hover .field--name-field-image, .page-scholarship-author-posts .view-scholarship-author-bio .views-row:hover .field--name-field-image {
   opacity: 0.7; }
 
 /**
@@ -445,33 +490,34 @@ html.bg {
  */
 @media (min-width: 542px) {
   /* line 64, ../sass/components/_category-page.scss */
-  .view-category-page {
+  .view-category-page, .page-scholarship-author-posts .view-scholarship-author-bio {
     margin-left: auto;
     margin-right: auto;
     width: 542px; }
     /* line 68, ../sass/components/_category-page.scss */
-    .view-category-page .views-row {
+    .view-category-page .views-row, .page-scholarship-author-posts .view-scholarship-author-bio .views-row {
       float: left;
       margin: 10px;
       width: 251px;
       height: 251px; }
     /* line 75, ../sass/components/_category-page.scss */
-    .view-category-page .views-row-odd,
-    .view-category-page .views-row-even {
+    .view-category-page .views-row-odd, .page-scholarship-author-posts .view-scholarship-author-bio .views-row-odd,
+    .view-category-page .views-row-even,
+    .page-scholarship-author-posts .view-scholarship-author-bio .views-row-even {
       margin-left: 10px;
       margin-right: 10px; }
     /* line 79, ../sass/components/_category-page.scss */
-    .view-category-page .views-field-title {
+    .view-category-page .views-field-title, .page-scholarship-author-posts .view-scholarship-author-bio .views-field-title {
       font-size: 30px; } }
 /**
  * At 813 pixels, 3 columns can fit in the grid.
  */
 @media (min-width: 813px) {
   /* line 89, ../sass/components/_category-page.scss */
-  .view-category-page {
+  .view-category-page, .page-scholarship-author-posts .view-scholarship-author-bio {
     width: 813px; }
     /* line 91, ../sass/components/_category-page.scss */
-    .view-category-page .views-row {
+    .view-category-page .views-row, .page-scholarship-author-posts .view-scholarship-author-bio .views-row {
       width: 251px;
       height: 251px; } }
 /**
@@ -479,23 +525,24 @@ html.bg {
  */
 @media (min-width: 960px) {
   /* line 102, ../sass/components/_category-page.scss */
-  .view-category-page {
+  .view-category-page, .page-scholarship-author-posts .view-scholarship-author-bio {
     margin-left: -40px;
     margin-right: -40px;
     width: auto; }
     /* line 106, ../sass/components/_category-page.scss */
-    .view-category-page .views-row {
+    .view-category-page .views-row, .page-scholarship-author-posts .view-scholarship-author-bio .views-row {
       float: left;
       margin: 40px;
       width: 251px;
       height: 251px; }
     /* line 113, ../sass/components/_category-page.scss */
-    .view-category-page .views-row-odd,
-    .view-category-page .views-row-even {
+    .view-category-page .views-row-odd, .page-scholarship-author-posts .view-scholarship-author-bio .views-row-odd,
+    .view-category-page .views-row-even,
+    .page-scholarship-author-posts .view-scholarship-author-bio .views-row-even {
       margin-left: 40px;
       margin-right: 40px; }
     /* line 117, ../sass/components/_category-page.scss */
-    .view-category-page .views-field-title {
+    .view-category-page .views-field-title, .page-scholarship-author-posts .view-scholarship-author-bio .views-field-title {
       font-size: 38px; } }
 /* line 3, ../sass/components/_facets.scss */
 ul.facetapi-facetapi-links, ul.facetapi-facetapi-links li,
@@ -789,6 +836,13 @@ ul.facetapi-facetapi-checkbox-links li {
     /* line 50, ../sass/components/_icons.scss */
     .content-user-links .stButton .chicklets:before {
       font-size: 16px; } }
+/**
+ * Because the site header is black, lets change the navbar background slightly
+ * for contrast, using a color that matches the theming of the site.
+ */
+/* line 5, ../sass/components/_navbar.scss */
+.navbar .bar {
+  background-color: #3d3c31; }
 
 /* line 8, ../sass/components/_navigation.scss */
 .pane-system-main-menu ul.menu, .pane-system-main-menu ul.menu li {
@@ -815,7 +869,7 @@ ul.facetapi-facetapi-checkbox-links li {
     border-top: 1px solid #858585;
     line-height: 0;
     margin-bottom: -5px; }
-    /* line 60, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+    /* line 60, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p484@omega.numa/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
     .pane-system-main-menu ul.menu li {
       list-style-image: none;
       list-style-type: none;
@@ -825,13 +879,13 @@ ul.facetapi-facetapi-checkbox-links li {
       float: left;
       padding-left: 4px;
       padding-right: 4px; }
-      /* line 48, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+      /* line 48, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p484@omega.numa/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
       .pane-system-main-menu ul.menu li:first-child, .pane-system-main-menu ul.menu li.first {
         padding-left: 0; }
-      /* line 49, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+      /* line 49, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p484@omega.numa/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
       .pane-system-main-menu ul.menu li:last-child {
         padding-right: 0; }
-      /* line 50, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+      /* line 50, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p484@omega.numa/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
       .pane-system-main-menu ul.menu li.last {
         padding-right: 0; }
     /* line 10, ../sass/abstractions/_horizontal-justified-list.scss */
@@ -855,7 +909,7 @@ ul.facetapi-facetapi-checkbox-links li {
     margin-top: 0;
     padding-top: 0;
     border-top: none; }
-    /* line 38, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+    /* line 38, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p484@omega.numa/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
     .pane-system-main-menu ul.menu:after {
       content: "";
       display: table;
@@ -997,15 +1051,16 @@ ul.facetapi-facetapi-checkbox-links li {
 body.no-page-title .pane-page-content > .pane-title,
 .front .pane-page-content > .pane-title,
 .page-resources .pane-page-content > .pane-title,
+.page-user .pane-page-content > .pane-title,
 .page-search-form .pane-page-content > .pane-title,
-.node-type-standard-content .pane-page-content > .pane-title {
+.page-post-style .pane-page-content > .pane-title {
   display: none; }
 
 /**
  * On other pages, display an alternate page title font style.
  */
 /* line 22, ../sass/components/_page-title.scss */
-.term-content-category .pane-page-content > .pane-title {
+.term-content-category .pane-page-content > .pane-title, .page-scholarship-author-posts .pane-page-content > .pane-title {
   font-family: "Abel_ProRegular", "Arial Narrow", Helvetica, Arial, sans-serif;
   color: black;
   font-size: 30px;
@@ -1015,8 +1070,38 @@ body.no-page-title .pane-page-content > .pane-title,
 
 @media (min-width: 44em) {
   /* line 31, ../sass/components/_page-title.scss */
-  .term-content-category .pane-page-content > .pane-title {
+  .term-content-category .pane-page-content > .pane-title, .page-scholarship-author-posts .pane-page-content > .pane-title {
     font-size: 60px; } }
+/* line 7, ../sass/components/_page-user.scss */
+.page-user .pane-user-field-profile-image {
+  float: left;
+  margin: 0 20px 20px 0; }
+/* line 12, ../sass/components/_page-user.scss */
+.page-user .pane-user-field-profile-name {
+  font-size: 1.5em;
+  margin: 0.83em 0;
+  line-height: 1.08em; }
+/* line 18, ../sass/components/_page-user.scss */
+.page-user .add-story-item {
+  margin-top: 45px; }
+  /* line 20, ../sass/components/_page-user.scss */
+  .page-user .add-story-item a {
+    background: #88856c;
+    width: 130px;
+    height: 34px;
+    display: table-cell;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle; }
+/* line 33, ../sass/components/_page-user.scss */
+.page-user .pane-bookmarked-catalog-items {
+  clear: both; }
+  /* line 36, ../sass/components/_page-user.scss */
+  .page-user .pane-bookmarked-catalog-items .view-bookmarked-catalog-items .views-row {
+    margin-bottom: 13px; }
+
 /* line 4, ../sass/components/_pager.scss */
 .pane-views-pager {
   border-top: 1px solid #cfcfcf;
@@ -1037,11 +1122,8 @@ body.no-page-title .pane-page-content > .pane-title,
 
 /* line 22, ../sass/components/_pager.scss */
 .pager a {
-  /* color: #5f5f5f; added font-weight*/
-  color: black;
-  text-decoration: none; 
-  font-family: 'Open Sans';
-  font-weight: bold;}
+  color: #5f5f5f;
+  text-decoration: none; }
 
 /* line 27, ../sass/components/_pager.scss */
 .pager__item--current {
@@ -1053,9 +1135,29 @@ body.no-page-title .pane-page-content > .pane-title,
 /* line 34, ../sass/components/_pager.scss */
 .pager__item {
   white-space: nowrap;
-  padding: 0.5em 0.3em 0.5em 0.5em; 
-  color: black;
-  font-weight: bold; }
+  padding: 0.5em 0.3em 0.5em 0.5em; }
+
+/* line 2, ../sass/components/_pane-inline-title.scss */
+.pane-inline-title .pane-content span > p:first-child {
+  display: inline; }
+
+/* Author bio pane */
+/* line 3, ../sass/components/_scholarship-items.scss */
+.pane-scholarship-author-bio-scholarship-bio-pane .field--type-image {
+  float: left;
+  margin-right: 20px; }
+/* line 7, ../sass/components/_scholarship-items.scss */
+.pane-scholarship-author-bio-scholarship-bio-pane .author-bio-summary {
+  font-style: italic; }
+/* line 10, ../sass/components/_scholarship-items.scss */
+.pane-scholarship-author-bio-scholarship-bio-pane .view-more-link {
+  clear: both;
+  margin-top: 8px; }
+
+/* Author posts page */
+/* line 26, ../sass/components/_scholarship-items.scss */
+.pane-scholarship-author-bio-authors-posts .pane-title {
+  display: none; }
 
 /* line 3, ../sass/components/_search-advanced-form.scss */
 .page-search-form .views-exposed-form {
@@ -1111,7 +1213,7 @@ html.js .page-search-form .views-exposed-form fieldset.collapsible .fieldset-leg
 #edit-basic-filters .fieldset-wrapper {
   *zoom: 1;
   position: relative; }
-  /* line 38, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+  /* line 38, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p484@omega.numa/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
   #edit-basic-filters .fieldset-wrapper:after {
     content: "";
     display: table;
@@ -1314,7 +1416,7 @@ html.js .page-search-form .views-exposed-form fieldset.collapsible .fieldset-leg
 .pane-laadp-search-serachapi-block {
   *zoom: 1;
   position: relative; }
-  /* line 38, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+  /* line 38, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p484@omega.numa/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
   .pane-laadp-search-serachapi-block:after {
     content: "";
     display: table;
@@ -1344,6 +1446,47 @@ html.js .page-search-form .views-exposed-form fieldset.collapsible .fieldset-leg
     width: 5.5em;
     font-size: 15px; }
 
+/* line 121, ../sass/components/_search.scss */
+body.page-browse .panel-2col-stacked .panel-col-first {
+  width: 70%; }
+/* line 124, ../sass/components/_search.scss */
+body.page-browse .panel-2col-stacked .panel-col-last {
+  width: 30%; }
+  /* line 126, ../sass/components/_search.scss */
+  body.page-browse .panel-2col-stacked .panel-col-last ul.facetapi-facetapi-links {
+    background: #f6f4ed;
+    padding: 20px 15px; }
+
+/* line 134, ../sass/components/_search.scss */
+div#views_infinite_scroll-ajax-loader {
+  text-align: center;
+  padding-top: 15px;
+  clear: both; }
+
+/* line 141, ../sass/components/_search.scss */
+.view-subject-browse .view-content {
+  display: inline-block;
+  width: 100%; }
+/* line 145, ../sass/components/_search.scss */
+.view-subject-browse .views-row {
+  background: #f6f4ed;
+  width: 180px;
+  padding: 10px;
+  margin-bottom: 20px; }
+  /* line 150, ../sass/components/_search.scss */
+  .view-subject-browse .views-row .search-thumb {
+    margin-right: 0;
+    float: none; }
+    /* line 153, ../sass/components/_search.scss */
+    .view-subject-browse .views-row .search-thumb img {
+      width: 100% !important;
+      margin-top: 0 !important; }
+  /* line 158, ../sass/components/_search.scss */
+  .view-subject-browse .views-row .views-field-title {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0 4px 0; }
+
 @media (max-width: 44em) {
   /* line 5, ../sass/components/_section-about.scss */
   .pane-menu-about ul.menu {
@@ -1353,7 +1496,7 @@ html.js .page-search-form .views-exposed-form fieldset.collapsible .fieldset-leg
     overflow: hidden;
     *zoom: 1;
     text-align: justify; }
-    /* line 60, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+    /* line 60, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p484@omega.numa/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
     .pane-menu-about ul.menu li {
       list-style-image: none;
       list-style-type: none;
@@ -1363,13 +1506,13 @@ html.js .page-search-form .views-exposed-form fieldset.collapsible .fieldset-leg
       float: left;
       padding-left: 4px;
       padding-right: 4px; }
-      /* line 48, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+      /* line 48, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p484@omega.numa/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
       .pane-menu-about ul.menu li:first-child, .pane-menu-about ul.menu li.first {
         padding-left: 0; }
-      /* line 49, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+      /* line 49, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p484@omega.numa/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
       .pane-menu-about ul.menu li:last-child {
         padding-right: 0; }
-      /* line 50, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p429@global/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+      /* line 50, ../../../../../../../../../.rvm/gems/ruby-1.9.3-p484@omega.numa/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
       .pane-menu-about ul.menu li.last {
         padding-right: 0; }
     /* line 10, ../sass/abstractions/_horizontal-justified-list.scss */
@@ -1379,15 +1522,18 @@ html.js .page-search-form .views-exposed-form fieldset.collapsible .fieldset-leg
     /* line 14, ../sass/abstractions/_horizontal-justified-list.scss */
     .pane-menu-about ul.menu li {
       float: none;
-      display: inline-block; } }
+      display: inline-block; }
+    /* line 7, ../sass/components/_section-about.scss */
+    .pane-menu-about ul.menu a {
+      font-size: 0.867em; } }
 /* line 6, ../sass/components/_standard-content.scss */
-.node-type-standard-content .l-content {
+.page-post-style .l-content {
   padding-top: 0; }
 /* line 9, ../sass/components/_standard-content.scss */
-.node-type-standard-content .l-region--help {
+.page-post-style .l-region--help {
   margin-bottom: 0; }
 /* line 12, ../sass/components/_standard-content.scss */
-.node-type-standard-content .panel-col-top {
+.page-post-style .panel-col-top {
   background: #c0b493 url(../images/background.jpg) no-repeat 50% 50%;
   background-size: cover;
   margin-left: -20px;
@@ -1397,57 +1543,152 @@ html.js .page-search-form .views-exposed-form fieldset.collapsible .fieldset-leg
   width: auto;
   float: none; }
 /* line 23, ../sass/components/_standard-content.scss */
-.node-type-standard-content .panel-col-middle,
-.node-type-standard-content .pandl-col-bottom {
+.page-post-style .panel-col-middle,
+.page-post-style .panel-col-bottom {
   border-top: 1px solid #ccc;
   margin-top: 20px;
   padding-top: 20px; }
 /* line 29, ../sass/components/_standard-content.scss */
-.node-type-standard-content .pane-page-title,
-.node-type-standard-content .pane-node-created {
+.page-post-style .pane-page-title,
+.page-post-style .pane-node-created {
   color: #fff;
   text-shadow: 1px 1px 2px #222; }
 /* line 33, ../sass/components/_standard-content.scss */
-.node-type-standard-content .pane-page-title h1 {
+.page-post-style .pane-page-title h1 {
   font-size: 41px;
   margin: 0;
   font-weight: 600; }
 /* line 39, ../sass/components/_standard-content.scss */
-.node-type-standard-content .pane-node-created {
+.page-post-style .pane-node-created {
   font-size: 18px;
   margin: 0; }
 
-/* line 48, ../sass/components/_standard-content.scss */
-.pane-node-field-related .field-label,
-.pane-node-field-resources .field-label {
-  font-size: 23px;
-  margin: 0 0 20px; }
-/* line 53, ../sass/components/_standard-content.scss */
-.pane-node-field-related .field,
-.pane-node-field-resources .field {
-  margin-top: 10px; }
-
 @media (min-width: 44em) {
-  /* line 60, ../sass/components/_standard-content.scss */
-  .node-type-standard-content .panel-col-top {
+  /* line 47, ../sass/components/_standard-content.scss */
+  .page-post-style .panel-col-top {
     margin-left: -40px;
     margin-right: -40px;
     margin-bottom: 40px;
     padding: 40px 40px; }
-  /* line 67, ../sass/components/_standard-content.scss */
-  .node-type-standard-content .panel-col-middle,
-  .node-type-standard-content .pandl-col-bottom {
+  /* line 54, ../sass/components/_standard-content.scss */
+  .page-post-style .panel-col-middle,
+  .page-post-style .panel-col-bottom {
     margin-top: 40px;
     padding-top: 40px; }
 
-  /* line 74, ../sass/components/_standard-content.scss */
+  /* line 61, ../sass/components/_standard-content.scss */
   .pane-node-field-related .field-label,
   .pane-node-field-resources .field-label {
     margin-bottom: 40px; }
-  /* line 77, ../sass/components/_standard-content.scss */
+  /* line 64, ../sass/components/_standard-content.scss */
   .pane-node-field-related .field,
   .pane-node-field-resources .field {
     margin-top: 20px; } }
+/* line 72, ../sass/components/_standard-content.scss */
+.pane-node-field-related .field-label,
+.pane-node-field-resources .field-label {
+  font-size: 23px;
+  margin: 0 0 20px; }
+/* line 77, ../sass/components/_standard-content.scss */
+.pane-node-field-related .field,
+.pane-node-field-resources .field {
+  margin-top: 10px; }
+
+/* line 85, ../sass/components/_standard-content.scss */
+.pane-node-field-tags {
+  margin-left: 7px;
+  clear: both; }
+  /* line 88, ../sass/components/_standard-content.scss */
+  .pane-node-field-tags .field-label {
+    display: inline;
+    margin-right: 8px; }
+  /* line 92, ../sass/components/_standard-content.scss */
+  .pane-node-field-tags .field {
+    display: inline;
+    margin-right: 4px; }
+    /* line 95, ../sass/components/_standard-content.scss */
+    .pane-node-field-tags .field:after {
+      content: ",";
+      margin-left: -2px; }
+    /* line 100, ../sass/components/_standard-content.scss */
+    .pane-node-field-tags .field:last-child:after {
+      display: none; }
+
+/* line 106, ../sass/components/_standard-content.scss */
+.pane-add-tags {
+  margin-top: 25px;
+  clear: both; }
+  /* line 109, ../sass/components/_standard-content.scss */
+  .pane-add-tags a {
+    background: #88856c;
+    width: 100px;
+    height: 34px;
+    display: table-cell;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle; }
+
+/* line 122, ../sass/components/_standard-content.scss */
+.pane-author {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 40px;
+  margin-bottom: 15px; }
+  /* line 127, ../sass/components/_standard-content.scss */
+  .pane-author .view-author .views-row {
+    font-style: italic; }
+    /* line 129, ../sass/components/_standard-content.scss */
+    .pane-author .view-author .views-row .field--name-field-profile-name {
+      font-size: 19px; }
+    /* line 133, ../sass/components/_standard-content.scss */
+    .pane-author .view-author .views-row .field--name-field-profile-image {
+      float: left;
+      margin: 0 15px 10px 0; }
+    /* line 137, ../sass/components/_standard-content.scss */
+    .pane-author .view-author .views-row div {
+      display: inline; }
+  /* line 141, ../sass/components/_standard-content.scss */
+  .pane-author .view-author .view-footer {
+    clear: both; }
+
+/* line 147, ../sass/components/_standard-content.scss */
+#modalContent {
+  z-index: 9999 !important; }
+  /* line 150, ../sass/components/_standard-content.scss */
+  #modalContent div.ctools-modal-content .modal-header {
+    background-color: #000; }
+  /* line 153, ../sass/components/_standard-content.scss */
+  #modalContent div.ctools-modal-content a.close img {
+    display: none; }
+  /* line 156, ../sass/components/_standard-content.scss */
+  #modalContent div.ctools-modal-content .field-name-field-tags {
+    margin: 10px 0 25px 0; }
+    /* line 158, ../sass/components/_standard-content.scss */
+    #modalContent div.ctools-modal-content .field-name-field-tags label {
+      margin-bottom: 5px;
+      width: 80px; }
+    /* line 162, ../sass/components/_standard-content.scss */
+    #modalContent div.ctools-modal-content .field-name-field-tags .form-autocomplete {
+      background-position: 100% 7px; }
+    /* line 165, ../sass/components/_standard-content.scss */
+    #modalContent div.ctools-modal-content .field-name-field-tags .at-term-list {
+      padding: 0 0 10px 0; }
+      /* line 167, ../sass/components/_standard-content.scss */
+      #modalContent div.ctools-modal-content .field-name-field-tags .at-term-list .at-term {
+        cursor: auto;
+        display: inline-block;
+        padding: 0; }
+        /* line 171, ../sass/components/_standard-content.scss */
+        #modalContent div.ctools-modal-content .field-name-field-tags .at-term-list .at-term span {
+          padding: 5px; }
+        /* line 174, ../sass/components/_standard-content.scss */
+        #modalContent div.ctools-modal-content .field-name-field-tags .at-term-list .at-term.at-term-remove {
+          cursor: pointer; }
+  /* line 181, ../sass/components/_standard-content.scss */
+  #modalContent div.ctools-modal-content .form-actions input {
+    margin-right: 5px; }
+
 /**
  * Adjust the size of the video iframe to the width of the screen on small devices.
  */

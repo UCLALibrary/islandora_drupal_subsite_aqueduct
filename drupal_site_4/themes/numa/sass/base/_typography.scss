@@ -34,7 +34,6 @@ body {
 }
 
 a, a:visited {
-  @extend %font-family-open-sans;
   color: $base-link-color;
   text-decoration: underline;
   transition: color 0.2s ease;
@@ -42,7 +41,15 @@ a, a:visited {
 a:hover, a:active, a:focus {
   color: saturate(lighten($base-link-color, 10%), 25%);
 }
+h2.pane-title {
+  line-height: 1.08em;
+}
 
+b,
+strong {
+  font-family: $abelpro-bold;
+  font-weight: normal;
+}
 /**
  * Provide a little extra spacing above secondary sections heading that follow
  * a paragraph from a preceeding section.

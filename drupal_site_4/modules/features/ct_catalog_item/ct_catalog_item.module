@@ -5,3 +5,57 @@
  */
 
 include_once 'ct_catalog_item.features.inc';
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function ct_catalog_item_field_formatter_info() {
+  return array(
+    'searchapi_facet_link' => array(
+      'label' => t('SearchAPI Facet Link'),
+      'field types' => array('text'),
+      'settings' => array(
+        'facet_identifier' => '',
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function ct_catalog_item_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+  $element = array();
+
+  $element['facet_identifier'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Facet Identifier'),
+    '#description' => t('This is the machine name of the facet identifier that is passed in URL.'),
+    '#default_value' => $settings['facet_identifier'],
+  );
+
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function ct_catalog_item_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+
+  if ($display['type'] == 'searchapi_facet_link') {
+    foreach ($items as $item) {
+      $options = array(
+        'query' => array(
+          'f[0]' => $display['settings']['facet_identifier'] . ':' . $item['value'],
+        ),
+      );
+      $facet_link = l($item['value'], 'search', $options);
+      $element[]['#markup'] = $facet_link;
+    }
+  }
+
+  return $element;
+}

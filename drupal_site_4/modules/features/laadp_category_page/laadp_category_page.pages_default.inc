@@ -53,10 +53,11 @@ function laadp_category_page_default_page_manager_pages() {
   );
   $display->cache = array();
   $display->title = 'LAADP Resources';
+  $display->uuid = '6e64b1e1-ab39-4745-a0d2-9eecbcd3fba7';
   $display->content = array();
   $display->panels = array();
     $pane = new stdClass();
-    $pane->pid = 'new-1';
+    $pane->pid = 'new-600a88e8-2080-4711-b9ff-fa82a0c62bc4';
     $pane->panel = 'middle';
     $pane->type = 'menu_tree';
     $pane->subtype = 'main-menu';
@@ -83,8 +84,9 @@ function laadp_category_page_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-1'] = $pane;
-    $display->panels['middle'][0] = 'new-1';
+    $pane->uuid = '600a88e8-2080-4711-b9ff-fa82a0c62bc4';
+    $display->content['new-600a88e8-2080-4711-b9ff-fa82a0c62bc4'] = $pane;
+    $display->panels['middle'][0] = 'new-600a88e8-2080-4711-b9ff-fa82a0c62bc4';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
