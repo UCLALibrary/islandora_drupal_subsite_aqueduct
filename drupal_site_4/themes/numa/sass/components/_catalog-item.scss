@@ -1,14 +1,43 @@
 // Use the susy grid breakpoints we've defined for the project.
 @import "variables/breakpoints";
 
-.pane-nodefield-creator {
-  margin-top: 20px;
+.node-type-catalog-item .pane-node-body {
+  margin: 0;
+  p {
+    margin: 0 0 1em;
+  }
+  p:last-child {
+    margin: 0;
+  }
 }
-.pane-nodefield-physical-description,
-.pane-nodefield-genre,
-.pane-nodefield-subject,
-.pane-nodefield-oac-url {
-  margin: 20px 0;
+
+span.field--name-field-location,
+span.field--name-field-people {
+  &:after {
+    content: "; ";
+    margin-left: -3px;
+  }
+  &:last-child:after {
+    content: "";
+  }
+}
+
+.vertical-spacer {
+  margin: 15px 0;
+}
+
+.pane-flag-link.pane-node {
+  a {
+    background: $button-background;
+    width: 130px;
+    height: 34px;
+    display: table-cell;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
 }
 
 /**

@@ -6,6 +6,8 @@ engine = phptemplate
 core = 7.x
 
 ; Stylesheets
+stylesheets[all][] = css/fonts/abelpro-regular.css
+stylesheets[all][] = css/fonts/abelpro-bold.css
 stylesheets[all][] = icons/style.css
 stylesheets[all][] = css/numa.normalize.css
 stylesheets[all][] = css/numa.hacks.css
@@ -15,6 +17,7 @@ stylesheets[all][] = css/numa.no-query.css
 
 ; Scripts
 scripts[] = js/numa.behaviors.js
+scripts[] = js/input_placeholder.js
 
 ; Regions
 regions[header] = Header

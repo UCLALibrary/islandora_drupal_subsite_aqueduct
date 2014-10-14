@@ -6,8 +6,8 @@
 function laadp_system_update_7001() {
 
   // Use custom theme and Ember for admin theme.
-  theme_enable(array('numa', 'seven'));
-  variable_set('admin_theme', 'seven');
+  theme_enable(array('numa', 'ember'));
+  variable_set('admin_theme', 'ember');
   variable_set('theme_default', 'numa');
   theme_disable(array('seven', 'bartik'));
 
@@ -57,4 +57,91 @@ function laadp_system_update_7006() {
  */
 function laadp_system_update_7007() {
   module_enable(array('views_bulk_operations'));
+}
+
+/**
+ * Enable LAADP views infinite scroll module.
+ */
+function laadp_system_update_7008() {
+  module_enable(array('views_infinite_scroll'));
+}
+
+
+/**
+ * Enable laadp_users feature.
+ */
+function laadp_system_update_7009() {
+  module_enable(array('laadp_users'));
+}
+
+/**
+ * Enable ct_scholarship_item feature and the galleria module.
+ */
+function laadp_system_update_7010() {
+  module_enable(array('ct_scholarship_item', 'galleria'));
+}
+
+/**
+ * Enable custom galleria config module.
+ */
+function laadp_system_update_7011() {
+  module_enable(array('laadp_galleria'));
+}
+
+/**
+ * Enable Field API Pane Editor module.
+ */
+function laadp_system_update_7012() {
+  module_enable(array('fape'));
+}
+
+/**
+ * Enable Field Permissions module.
+ */
+function laadp_system_update_7013() {
+  module_enable(array('field_permissions'));
+}
+
+/**
+ * Enable Flag module.
+ */
+function laadp_system_update_7014() {
+  module_enable(array('flag'));
+}
+
+/**
+ * Enable ct_story_item feature.
+ */
+function laadp_system_update_7015() {
+  module_enable(array('ct_story_item'));
+}
+
+/**
+ * Default jQuery Version: 1.8
+ * Alternate jQuery version for administrative pages: 1.7
+ */
+function laadp_system_update_7016() {
+  variable_set('jquery_update_jquery_version', '1.8');
+  variable_set('jquery_update_jquery_admin_version', '1.7');
+}
+
+/**
+ * Enable Active Tags module.
+ */
+function laadp_system_update_7017() {
+  module_enable(array('active_tags'));
+}
+
+/**
+ * Enable Content Taxonomy, Content Taxonomy Autocomplete modules.
+ */
+function laadp_system_update_7018() {
+  module_enable(array('content_taxonomy', 'content_taxonomy_autocomplete'));
+}
+
+/**
+ * Enable LAADP Zotero module.
+ */
+function laadp_system_update_7019() {
+  module_enable(array('laadp_zotero'));
 }

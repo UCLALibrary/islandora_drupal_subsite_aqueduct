@@ -1,0 +1,22 @@
+<?php
+/**
+ * @file
+ * Code for the Story Item feature.
+ */
+
+include_once 'ct_story_item.features.inc';
+
+
+/**
+ * Implements hook_url_inbound_alter().
+ */
+function ct_story_item_url_inbound_alter(&$path, $original_path, $path_language) {
+	if ($path == 'node/add/story') {
+		$router_item = menu_get_item($path);
+
+		// Redirect anonymous users to the login page
+		if (!$router_item['access']) {
+			drupal_goto('user', array('query' => drupal_get_destination()));
+		}
+	}
+}

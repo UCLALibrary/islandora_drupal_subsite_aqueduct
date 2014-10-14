@@ -8,6 +8,16 @@ html {
 body {
   overflow-x: hidden; // Fix mobile content layout glitches.
 }
+@-moz-document url-prefix() {
+  body {
+    overflow-x: unset;
+  }
+}
+html.ie {
+  body {
+    overflow-x: visible;
+  }
+}
 .l-header-wrapper,
 .l-footer-wrapper {
   background: $page-bg-color;

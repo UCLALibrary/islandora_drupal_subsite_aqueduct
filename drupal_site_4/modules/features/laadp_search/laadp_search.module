@@ -166,6 +166,13 @@ class LaadpSearchCustomIndexFields extends SearchApiAbstractAlterCallback {
         $items[$id]->field_institution_fulltext = $node_wrapper->field_contributing_institution->value();
         $items[$id]->field_location_fulltext = $node_wrapper->field_location->value();
         $items[$id]->field_people_fulltext = $node_wrapper->field_people->value();
+
+        // Trimmed copyright
+        $copyright = $node_wrapper->field_copyright_long->value();
+        $trimmed_value = views_trim_text(array('max_length' => 50, 'word_boundary' => TRUE), $copyright);
+        // Remove trailing non word chars
+        $trimmed_value = trim(preg_replace('/[\(\)\'\"]/', '', $trimmed_value));
+        $items[$id]->field_copyright_filtered = $trimmed_value;
       }
     }
   }
@@ -196,6 +203,11 @@ class LaadpSearchCustomIndexFields extends SearchApiAbstractAlterCallback {
         'label' => t('People Fulltext'),
         'description' => t('Clone the People field to allow fullsearch.'),
         'type' => 'list<text>',
+      ),
+      'field_copyright_filtered' => array(
+        'label' => t('Filtered Copyright'),
+        'description' => t('Filtered copyright, this index field ensure that the long copyright texts get trimmed.'),
+        'type' => 'string',
       ),
     );
   }

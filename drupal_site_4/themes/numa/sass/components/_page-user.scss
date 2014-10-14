@@ -1,0 +1,41 @@
+// Styles for user page
+.page-user {
+
+  // Hide the page title.
+  @extend %no-page-title;
+
+  .pane-user-field-profile-image {
+    float: left;
+    margin: 0 20px 20px 0;
+  }
+
+  .pane-user-field-profile-name {
+    font-size: 1.5em;
+    margin: 0.83em 0;
+    line-height: 1.08em;
+  }
+
+  .add-story-item {
+    margin-top: 45px;
+    a {
+      background: $button-background;
+      width: 130px;
+      height: 34px;
+      display: table-cell;
+      text-align: center;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      vertical-align: middle;
+    }
+  }
+
+  .pane-bookmarked-catalog-items {
+    clear: both;
+    .view-bookmarked-catalog-items {
+      .views-row {
+        margin-bottom: 13px;
+      }
+    }
+  }
+}

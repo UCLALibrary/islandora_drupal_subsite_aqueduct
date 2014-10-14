@@ -209,6 +209,16 @@ function laadp_migration_feeds_importer_default() {
             'target' => 'field_copyright_long',
             'unique' => FALSE,
           ),
+          33 => array(
+            'source' => 'Preferred Citation',
+            'target' => 'field_citation_text',
+            'unique' => FALSE,
+          ),
+          34 => array(
+            'source' => 'URL to Digital Object',
+            'target' => 'field_field_digital_object:url',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'input_format' => 'plain_text',

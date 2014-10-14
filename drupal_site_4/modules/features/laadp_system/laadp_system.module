@@ -20,4 +20,3 @@ function laadp_system_ctools_plugin_directory($owner, $plugin_type) {
     return 'plugins/' . $plugin_type;
   }
 }
-

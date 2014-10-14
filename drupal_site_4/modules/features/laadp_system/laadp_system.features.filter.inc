@@ -10,17 +10,27 @@
 function laadp_system_filter_default_formats() {
   $formats = array();
 
+  // Exported format: full html.
+  $formats['full_html'] = array(
+    'format' => 'full_html',
+    'name' => 'full html',
+    'cache' => 1,
+    'status' => 1,
+    'weight' => -8,
+    'filters' => array(),
+  );
+
   // Exported format: Laadp Format.
   $formats['laadp_format'] = array(
     'format' => 'laadp_format',
     'name' => 'Laadp Format',
-    'cache' => '1',
-    'status' => '1',
-    'weight' => '0',
+    'cache' => 1,
+    'status' => 1,
+    'weight' => -10,
     'filters' => array(
       'wysiwyg' => array(
-        'weight' => '-8',
-        'status' => '1',
+        'weight' => -8,
+        'status' => 1,
         'settings' => array(
           'valid_elements' => 'a[!href|target<_blank|title],
 div[align<center?justify?left?right],
@@ -29,7 +39,7 @@ br,span,em,strong,strike,u,sub,sup,cite,code,blockquote,ul,ol,li,dl,dt,dd,
 img[*],
 h1,h2,h3,
 @[class|style]',
-          'allow_comments' => '0',
+          'allow_comments' => 0,
           'nofollow_policy' => 'disabled',
           'nofollow_domains' => array(),
           'style_color' => array(
@@ -159,14 +169,14 @@ h1,h2,h3,
         ),
       ),
       'video_filter' => array(
-        'weight' => '10',
-        'status' => '1',
+        'weight' => 10,
+        'status' => 1,
         'settings' => array(
-          'video_filter_width' => '400',
-          'video_filter_height' => '400',
-          'video_filter_autoplay' => '0',
-          'video_filter_related' => '0',
-          'video_filter_html5' => '1',
+          'video_filter_width' => 400,
+          'video_filter_height' => 400,
+          'video_filter_autoplay' => 0,
+          'video_filter_related' => 0,
+          'video_filter_html5' => 1,
         ),
       ),
     ),
@@ -176,48 +186,28 @@ h1,h2,h3,
   $formats['plain_text'] = array(
     'format' => 'plain_text',
     'name' => 'Plain text',
-    'cache' => '1',
-    'status' => '1',
-    'weight' => '10',
+    'cache' => 1,
+    'status' => 1,
+    'weight' => -9,
     'filters' => array(
       'filter_html_escape' => array(
-        'weight' => '0',
-        'status' => '1',
+        'weight' => 0,
+        'status' => 1,
         'settings' => array(),
       ),
       'filter_url' => array(
-        'weight' => '1',
-        'status' => '1',
+        'weight' => 1,
+        'status' => 1,
         'settings' => array(
           'filter_url_length' => 72,
         ),
       ),
       'filter_autop' => array(
-        'weight' => '2',
-        'status' => '1',
+        'weight' => 2,
+        'status' => 1,
         'settings' => array(),
       ),
     ),
-  );
-
-  // Exported format: Full HTML
-  $formats['full_html'] = array(
-  		'format' => 'full_html',
-  		'name' => 'Full HTML',
-  		'cache' => '1',
-  		'status' => '1',
-  		'weight' => '5',
-  		'filters' => array(
-  				'filter_html' => array(
-  						'weight' => '-49',
-  						'status' => '1',
-  						'settings' => array(
-  								'allowed_html' => '<img><div><span><p><b><i><ul><ol><li><pre><table><tbody><tr><td><a><iframe><b><i>',
-  								'filter_html_help' => 0,
-  								'filter_html_nofollow' => 0,
-  						),
-  				),
-  		),
   );
 
   return $formats;

@@ -7,12 +7,10 @@
 /**
  * Implements hook_ctools_plugin_api().
  */
-function laadp_search_ctools_plugin_api() {
-  list($module, $api) = func_get_args();
+function laadp_search_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "facetapi" && $api == "facetapi_defaults") {
     return array("version" => "1");
   }
-  list($module, $api) = func_get_args();
   if ($module == "page_manager" && $api == "pages_default") {
     return array("version" => "1");
   }
@@ -21,8 +19,40 @@ function laadp_search_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function laadp_search_views_api() {
+function laadp_search_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
+}
+
+/**
+ * Implements hook_image_default_styles().
+ */
+function laadp_search_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: browse_page_thumbnail.
+  $styles['browse_page_thumbnail'] = array(
+    'name' => 'browse_page_thumbnail',
+    'effects' => array(
+      1 => array(
+        'label' => 'Scale',
+        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
+        'effect callback' => 'image_scale_effect',
+        'dimensions callback' => 'image_scale_dimensions',
+        'form callback' => 'image_scale_form',
+        'summary theme' => 'image_scale_summary',
+        'module' => 'image',
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 160,
+          'height' => '',
+          'upscale' => 1,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
+  return $styles;
 }
 
 /**
@@ -47,7 +77,15 @@ function laadp_search_default_search_api_index() {
         },
         "search_api_alter_node_access" : { "status" : 1, "weight" : "0", "settings" : [] },
         "search_api_alter_node_status" : { "status" : 0, "weight" : "0", "settings" : [] },
-        "search_api_alter_add_hierarchy" : { "status" : 0, "weight" : "0", "settings" : { "fields" : [] } },
+        "search_api_alter_add_hierarchy" : {
+          "status" : 1,
+          "weight" : "0",
+          "settings" : { "fields" : {
+              "field_subject:parent" : "field_subject:parent",
+              "field_subject:parents_all" : "field_subject:parents_all"
+            }
+          }
+        },
         "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_alter_add_url" : { "status" : 0, "weight" : "0", "settings" : [] },
         "laadp_search_custom_index_fields" : { "status" : 1, "weight" : "0", "settings" : [] },
@@ -86,13 +124,7 @@ function laadp_search_default_search_api_index() {
           "status" : 0,
           "weight" : "20",
           "settings" : {
-            "fields" : {
-              "title" : true,
-              "field_contributing_institution" : true,
-              "field_location" : true,
-              "field_people" : true,
-              "body:value" : true
-            },
+            "fields" : { "title" : true, "body:value" : true },
             "spaces" : "[^\\\\p{L}\\\\p{N}]",
             "ignorable" : "[-]"
           }
@@ -141,12 +173,14 @@ function laadp_search_default_search_api_index() {
         "field_location" : { "type" : "list\\u003Cstring\\u003E" },
         "field_people" : { "type" : "list\\u003Cstring\\u003E" },
         "field_subject" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "field_djatoka_image" : { "type" : "text" },
         "search_api_language" : { "type" : "string" },
         "field_date_year" : { "type" : "string" },
         "field_subjects_fulltext" : { "type" : "list\\u003Ctext\\u003E" },
         "field_institution_fulltext" : { "type" : "text" },
         "field_location_fulltext" : { "type" : "list\\u003Ctext\\u003E" },
         "field_people_fulltext" : { "type" : "list\\u003Ctext\\u003E" },
+        "field_copyright_filtered" : { "type" : "string" },
         "body:value" : { "type" : "text" }
       }
     },
