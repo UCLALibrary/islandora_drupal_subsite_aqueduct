@@ -3,7 +3,7 @@
 /**
  * @file
  * Provides a custom search block (simple keyword search) to a Search API views page.
- * Note: the view must have a url of /search  and the exposed fulltext filter should be
+ * Note: the view must have a url of /aqueduct/search  and the exposed fulltext filter should be
  * renamed "keyword", for this form to work as expected.
  */
 
@@ -40,7 +40,7 @@ function laadp_search_searchapi_block_render($subtype, $conf, $args, $context) {
   // with the form action url changed.
   $block->content = "
 <div class='container-inline'>
-  <form class='search-form' action='/search' method='get' id='search-form' accept-charset='UTF-8'>
+  <form class='search-form' action='/aqueduct/search' method='get' id='search-form' accept-charset='UTF-8'>
     <div>
       <div class='form-item form-type-textfield form-item-keywords'>
         <label for='keywords'>Keyword Search</label>
